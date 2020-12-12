@@ -24,7 +24,6 @@ class ThirdScreen : Fragment() {
             findNavController().navigate(R.id.action_viewPagerFragment_to_homeFragment)
             onBoardingFinished()
         }
-
         return view
     }
 
@@ -34,5 +33,4 @@ class ThirdScreen : Fragment() {
         editor.putBoolean("Finished", true)
         editor.apply()
     }
-
 }
