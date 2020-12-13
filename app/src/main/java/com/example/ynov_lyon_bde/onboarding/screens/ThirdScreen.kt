@@ -32,5 +32,4 @@ class ThirdScreen : Fragment() {
         editor.putBoolean("Finished", true)
         editor.apply()
     }
-
 }

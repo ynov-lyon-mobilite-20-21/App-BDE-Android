@@ -36,5 +36,4 @@ class ViewPagerFragment : Fragment() {
         view.viewPager.adapter = adapter
         return view
     }
-
 }

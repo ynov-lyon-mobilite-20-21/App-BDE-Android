@@ -24,7 +24,4 @@ class FirstScreen : Fragment() {
         }
         return view
     }
-
-
-
 }
