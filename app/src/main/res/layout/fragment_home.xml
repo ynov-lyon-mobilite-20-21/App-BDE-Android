@@ -38,8 +38,9 @@
             android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="255dp"
-                android:layout_height="359dp"
+                android:id="@+id/cardview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="45dp"
@@ -52,8 +53,9 @@
 
 
             <androidx.cardview.widget.CardView
-                android:layout_width="255dp"
-                android:layout_height="359dp"
+                android:id="@+id/cardview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginRight="45dp"
@@ -65,8 +67,9 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="255dp"
-                android:layout_height="359dp"
+                android:id="@+id/cardview3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
