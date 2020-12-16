@@ -22,7 +22,8 @@
             android:background="@color/color_home_fragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="TODO"/>
 
         <Button
             android:id="@+id/button1"
@@ -36,44 +37,52 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="328dp"
             app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/date_card_description"
-                    android:layout_marginLeft="47dp"
-                    android:layout_marginTop="40dp"
-                    android:textColor="@color/black"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/hour_event"
-                    android:layout_marginLeft="262dp"
-                    android:layout_marginTop="40dp"
-                    android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_card_description"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/black"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/address_event"
-                    android:layout_marginLeft="47dp"
-                    android:layout_marginTop="80dp"
-                    android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hour_event"
+                android:layout_marginLeft="262dp"
+                android:layout_marginTop="40dp"
+                android:textColor="@color/black"/>
 
-                <TextView
-                    android:layout_width="198dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="47dp"
-                    android:layout_marginTop="130dp"
-                    android:text="@string/description_event"
-                    android:textColor="@color/black" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/address_event"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="80dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="47dp"
+                android:layout_marginTop="130dp"
+                android:text="@string/description_event"
+                android:textColor="@color/black" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="500dp"
+                android:layout_marginBottom="50dp"/>
 
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
