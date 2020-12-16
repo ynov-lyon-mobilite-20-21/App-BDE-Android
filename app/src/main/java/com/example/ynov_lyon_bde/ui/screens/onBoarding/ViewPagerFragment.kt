@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ynov_lyon_bde.R
-import com.example.ynov_lyon_bde.domain.viewmodel.ViewPagerAdapter
+import com.example.ynov_lyon_bde.domain.viewmodel.onBoarding.ViewPagerAdapter
 import com.example.ynov_lyon_bde.ui.screens.onBoarding.viewPager.FirstScreen
 import com.example.ynov_lyon_bde.ui.screens.onBoarding.viewPager.SecondScreen
 import com.example.ynov_lyon_bde.ui.screens.onBoarding.viewPager.ThirdScreen

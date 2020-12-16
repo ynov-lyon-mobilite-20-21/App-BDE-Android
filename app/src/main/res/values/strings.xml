@@ -2,7 +2,9 @@
     <string name="app_name">My Application2</string>
 
     //fragment_home
-    <string name="name_event">EVENEMENTS</string>
+    <string name="Evenement">EVENEMENTS</string>
+    <string name="title_event">Espit Chupitos</string>
+    <string name="type_event">Soirée Etudiante </string>
 
     //card_description
     <string name="date_card_description">13/11/2020</string>
