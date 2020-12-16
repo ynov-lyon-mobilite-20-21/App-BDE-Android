@@ -1,4 +1,4 @@
-package com.example.ynov_lyon_bde.onboarding.screens
+package com.example.ynov_lyon_bde.ui.screens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

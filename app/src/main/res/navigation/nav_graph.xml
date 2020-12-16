@@ -6,7 +6,7 @@
     app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/viewPagerFragment"
-        android:name="com.example.ynov_lyon_bde.onboarding.ViewPagerFragment"
+        android:name="com.example.ynov_lyon_bde.domain.viewmodel.ViewPagerFragment"
         android:label="fragment_view_pager"
         tools:layout="@layout/fragment_view_pager" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.ynov_lyon_bde.HomeFragment"
+        android:name="com.example.ynov_lyon_bde.ui.screens.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.ynov_lyon_bde.OnBoardingFragment"
+        android:name="com.example.ynov_lyon_bde.domain.viewmodel.OnBoardingFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/card_description"
-        android:name="com.example.ynov_lyon_bde.CardDescription"
+        android:name="com.example.ynov_lyon_bde.ui.screens.CardDescription"
         android:label="fragment_card_description"
         tools:layout="@layout/fragment_card_description" >
         <action

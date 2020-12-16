@@ -1,4 +1,4 @@
-package com.example.ynov_lyon_bde
+package com.example.ynov_lyon_bde.domain.viewmodel
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.ynov_lyon_bde.R
 
 class OnBoardingFragment : Fragment() {
 

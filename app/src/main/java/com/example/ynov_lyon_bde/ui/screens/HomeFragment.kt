@@ -1,19 +1,13 @@
-package com.example.ynov_lyon_bde
+package com.example.ynov_lyon_bde.ui.screens
 
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.ScrollView
-import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.Navigation
+import com.example.ynov_lyon_bde.R
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.lang.reflect.Array
 
 class HomeFragment : Fragment() {
 
