@@ -12,6 +12,7 @@
         <action
             android:id="@+id/action_viewPagerFragment_to_homeFragment"
             app:destination="@id/homeFragment"
+            app:launchSingleTop="false"
             app:popUpTo="@id/viewPagerFragment"
             app:popUpToInclusive="true" />
     </fragment>
@@ -22,7 +23,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_card_description"
-            app:destination="@id/card_description" />
+            app:destination="@id/card_description"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -42,7 +44,11 @@
     </fragment>
     <fragment
         android:id="@+id/card_description"
-        android:name="com.example.ynov_lyon_bde.card_description"
+        android:name="com.example.ynov_lyon_bde.CardDescription"
         android:label="fragment_card_description"
-        tools:layout="@layout/fragment_card_description" />
+        tools:layout="@layout/fragment_card_description" >
+        <action
+            android:id="@+id/action_card_description_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
