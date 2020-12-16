@@ -1,4 +1,4 @@
-package com.example.ynov_lyon_bde.domain.viewmodel
+package com.example.ynov_lyon_bde.ui.screens.onBoarding
 
 import android.content.Context
 import android.os.Bundle
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.viewmodel.onBoarding.OnBoardingViewModel
 
 class OnBoardingFragment : Fragment() {
 
@@ -16,21 +17,14 @@ class OnBoardingFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
+        val viewModel = OnBoardingViewModel()
         Handler().postDelayed({
-            if(onBoardingFinished()){
+            if(viewModel.onBoardingFinished(requireActivity())){
                 findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
             }else{
                 findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
             }
-
         }, 3000)
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_splash, container, false)
-    }
-
-    private fun onBoardingFinished(): Boolean{
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("Finished",false)
     }
 }
