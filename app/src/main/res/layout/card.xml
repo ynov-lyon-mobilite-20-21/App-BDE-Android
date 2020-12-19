@@ -38,11 +38,10 @@
             android:layout_marginStart="6dp"
             android:src="@drawable/kolok_biere"
             app:tint="@color/yellow" />
-
     </RelativeLayout>
 
-
     <TextView
+        android:id="@+id/card_title_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -54,6 +53,7 @@
         android:textColor="@color/black"/>
 
     <TextView
+        android:id="@+id/type_event_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
@@ -63,6 +63,5 @@
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 

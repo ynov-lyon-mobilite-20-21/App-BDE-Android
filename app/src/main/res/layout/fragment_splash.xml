@@ -19,4 +19,12 @@
         app:layout_constraintTop_toTopOf="parent" >
     </androidx.viewpager2.widget.ViewPager2>
 
+    <ImageView
+        android:layout_width="173dp"
+        android:layout_height="173dp"
+        android:src="@drawable/logo_bde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/viewPager2"
+        app:layout_constraintStart_toStartOf="@+id/viewPager2"
+        app:layout_constraintTop_toTopOf="@+id/viewPager2"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
