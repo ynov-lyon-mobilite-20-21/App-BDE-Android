@@ -11,5 +11,6 @@
     <color name="Turquoise">#19A294</color>
     <color name="color_home_fragment">#18192E</color>
     <color name="yellow">#FAEA28</color>
-    <color name="grey">#999999</color>
+    <color name="gray">#707070</color>
+    <color name="color_evenment">#23B2A4</color>
 </resources>

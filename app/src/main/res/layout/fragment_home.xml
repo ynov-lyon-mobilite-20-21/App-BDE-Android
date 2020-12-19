@@ -11,15 +11,15 @@
         android:id="@+id/eventTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="39dp"
+        android:background="@drawable/square"
         android:text="@string/Evenement"
-        android:textColor="@color/color_home_fragment"
-        android:textSize="35sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/eventScrollView"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ScrollView
         android:id="@+id/eventScrollView"
@@ -45,7 +45,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp">
 
                 <include layout="@layout/card_test" />
             </androidx.cardview.widget.CardView>
@@ -58,11 +58,10 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp">
 
                 <include layout="@layout/card_test" />
             </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview3"
@@ -72,14 +71,10 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="8dp"
-                app:cardElevation="2dp">
+                app:cardElevation="6dp">
 
                 <include layout="@layout/card_test" />
             </androidx.cardview.widget.CardView>
-
-
-
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
