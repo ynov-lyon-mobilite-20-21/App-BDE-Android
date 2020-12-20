@@ -44,11 +44,11 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview1"
                 android:layout_width="match_parent"
-                android:layout_height="273dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_height="280dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="8dp"
+                android:layout_marginBottom="10dp"
                 app:cardElevation="6dp">
 
                 <include layout="@layout/card" />

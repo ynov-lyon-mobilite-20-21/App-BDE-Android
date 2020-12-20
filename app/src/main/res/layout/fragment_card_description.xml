@@ -14,20 +14,20 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="290dp">
+            android:layout_height="260dp">
 
             <Button
                 android:id="@+id/back_home_fragment"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:background="@drawable/ic_baseline_arrow_back_24"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="38dp"/>
+                android:layout_marginTop="38dp"
+                android:background="@drawable/ic_baseline_arrow_back_24" />
 
             <ImageView
                 android:id="@+id/image_event"
                 android:layout_width="match_parent"
-                android:layout_height="290dp"
+                android:layout_height="match_parent"
                 android:background="@color/color_home_fragment"
                 android:contentDescription="TODO"
                 android:scaleType="centerCrop"
@@ -38,29 +38,28 @@
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_width="265dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
                 android:id="@+id/title_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_event_card_description"
-                android:textSize="35sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="35sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/type_event_card_description"
                 android:textColor="@color/black"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="28dp"
@@ -77,38 +76,41 @@
                 <ImageView
                     android:id="@+id/horloge_image"
                     android:layout_width="15dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="123dp"
+                    android:layout_height="15dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="0dp"
+                    android:layout_toStartOf="@+id/hour_event"
                     android:src="@drawable/horloge" />
 
                 <TextView
                     android:id="@+id/hour_event"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="30dp"
                     android:text="@string/hour_event"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/adress_event"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/black"
+                android:layout_marginTop="30dp"
                 android:text="@string/address_event"
-                android:layout_marginTop="30dp"/>
+                android:textColor="@color/black"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/description_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/black"
-                android:text="@string/description_event"
                 android:layout_marginTop="31dp"
-                android:layout_marginBottom="36dp"/>
+                android:layout_marginBottom="36dp"
+                android:text="@string/description_event"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
         </LinearLayout>
             <Button
                 android:id="@+id/button_take_place"
