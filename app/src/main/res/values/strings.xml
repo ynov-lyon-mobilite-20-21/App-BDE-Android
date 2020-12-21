@@ -8,7 +8,7 @@
 
     //card_description
     <string name="title_event_card_description">ESPIT CHUPITOS </string>
-    <string name="type_event_card_description">SOIREE ETUDIANTE </string>
+    <string name="type_event_card_description">Soirée Etudiante</string>
     <string name="date_card_description">13/11/2020</string>
     <string name="hour_event">21H - 3H</string>
     <string name="address_event">22 Rue Joseph Serlin, 69001 Lyon</string>
