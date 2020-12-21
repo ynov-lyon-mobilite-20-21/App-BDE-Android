@@ -13,6 +13,7 @@
         android:orientation="vertical">
 
         <RelativeLayout
+            android:id="@+id/eventDescriptionImage"
             android:layout_width="match_parent"
             android:layout_height="260dp">
 
@@ -34,44 +35,48 @@
                 android:src="@drawable/kolok_card"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
-        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="40dp">
 
             <TextView
-                android:id="@+id/title_event"
-                android:layout_width="wrap_content"
+                android:id="@+id/eventDescriptionTitle"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title_event_card_description"
                 android:textColor="@color/black"
-                android:textSize="35sp" />
+                android:textSize="45sp" />
 
             <TextView
+                android:id="@+id/eventDescriptionType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/eventDescriptionTitle"
                 android:text="@string/type_event_card_description"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
-
+                android:textSize="13sp"/>
 
             <RelativeLayout
+                android:id="@+id/eventTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="36dp"
+                android:orientation="horizontal"
+                android:layout_below="@id/eventDescriptionType">
 
                 <TextView
                     android:id="@+id/date_event"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="0dp"
+                    android:layout_toStartOf="@+id/horloge_image"
                     android:text="@string/date_card_description"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
 
                 <ImageView
                     android:id="@+id/horloge_image"
@@ -80,48 +85,55 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="0dp"
                     android:layout_toStartOf="@+id/hour_event"
-                    android:src="@drawable/horloge" />
+                    android:src="@drawable/horloge"/>
 
                 <TextView
                     android:id="@+id/hour_event"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
                     android:text="@string/hour_event"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
+                    android:textSize="15sp" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/adress_event"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="@string/address_event"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/description_event"
+                android:id="@+id/eventAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="31dp"
-                android:layout_marginBottom="36dp"
+                android:layout_below="@+id/eventTime"
+                android:layout_marginTop="35dp"
+                android:text="@string/address_event"
+                android:textColor="@color/black"
+                android:textSize="15sp"/>
+
+            <TextView
+                android:id="@+id/eventDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="@string/description_event"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
-        </LinearLayout>
+                android:layout_below="@+id/eventAddress"
+                android:layout_marginTop="35dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="15dp"
+                android:textSize="15sp"/>
+
             <Button
                 android:id="@+id/button_take_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/eventDescription"
                 android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button_event_description"
                 android:text="@string/button_place"
                 android:textColor="@color/white"
-                android:textSize="12sp"
-                android:background="@drawable/button_event_description"
-                android:layout_marginBottom="15dp"/>
-
+                android:textSize="15sp" />
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>
