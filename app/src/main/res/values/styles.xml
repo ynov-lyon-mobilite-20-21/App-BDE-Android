@@ -8,7 +8,12 @@
     </style>
 
     <style name="AppTheme.NoActionBar">
-        <item name = "windowActionBar">false</item>
-        <item name = "windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Widget.AppTheme.MyView" parent="">
+        <item name="android:background">@color/gray_400</item>
+        <item name="exampleColor">@color/light_blue_400</item>
     </style>
 </resources>
