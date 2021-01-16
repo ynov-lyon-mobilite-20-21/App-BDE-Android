@@ -26,7 +26,7 @@
                 android:background="@drawable/ic_baseline_arrow_back_24" />
 
             <ImageView
-                android:id="@+id/image_event"
+                android:id="@+id/imageEvent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/color_home_fragment"
@@ -44,7 +44,7 @@
             android:padding="40dp">
 
             <TextView
-                android:id="@+id/eventDescriptionTitle"
+                android:id="@+id/eventTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/title_event_card_description"
@@ -55,7 +55,7 @@
                 android:id="@+id/eventDescriptionType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/eventDescriptionTitle"
+                android:layout_below="@+id/eventTitle"
                 android:text="@string/type_event_card_description"
                 android:textColor="@color/black"
                 android:textSize="13sp"/>
@@ -69,26 +69,26 @@
                 android:layout_below="@id/eventDescriptionType">
 
                 <TextView
-                    android:id="@+id/date_event"
+                    android:id="@+id/dateEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="0dp"
-                    android:layout_toStartOf="@+id/horloge_image"
+                    android:layout_toStartOf="@+id/eventImageHour"
                     android:text="@string/date_card_description"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <ImageView
-                    android:id="@+id/horloge_image"
+                    android:id="@+id/eventImageHour"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="0dp"
-                    android:layout_toStartOf="@+id/hour_event"
+                    android:layout_toStartOf="@+id/eventHour"
                     android:src="@drawable/horloge"/>
 
                 <TextView
-                    android:id="@+id/hour_event"
+                    android:id="@+id/eventHour"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
