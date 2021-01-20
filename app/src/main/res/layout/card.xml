@@ -21,7 +21,7 @@
         android:layout_height="0dp"
         android:background="@color/color_home_fragment"
         android:scaleType="centerCrop"
-        android:src="@drawable/kolok_card"
+        android:src="@drawable/ic_card_kolok"
         app:layout_constraintBottom_toTopOf="@id/eventInfo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="25dp"
-                android:src="@drawable/kolok_biere"
+                android:src="@drawable/ic_kolok_biere"
                 app:tint="@color/yellow" />
         </RelativeLayout>
 

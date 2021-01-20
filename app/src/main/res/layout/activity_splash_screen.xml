@@ -12,7 +12,7 @@
         android:id="@+id/SplashScreen"
         android:layout_width="94dp"
         android:layout_height="234dp"
-        android:src="@drawable/logo_bde"
+        android:src="@drawable/ic_logo_bde"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
