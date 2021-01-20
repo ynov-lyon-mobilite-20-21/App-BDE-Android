@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
 import kotlinx.android.synthetic.main.fragment_card_description.*
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_card_description.view.*
 
 class CardDescription : Fragment() {
 
-    val args:CardDescriptionArgs by navArgs()
+    private val args:CardDescriptionArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,7 +24,7 @@ class CardDescription : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_card_description, container, false)
 
-        view.back_home_fragment.setOnClickListener { Navigation.findNavController(view).navigate(R.id.action_card_description_to_homeFragment) }
+        view.back_home_fragment.setOnClickListener { findNavController().popBackStack() }
 
         val eventObject = args.eventObject
 

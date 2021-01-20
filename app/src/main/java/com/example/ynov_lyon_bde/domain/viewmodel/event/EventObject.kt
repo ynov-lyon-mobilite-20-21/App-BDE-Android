@@ -13,4 +13,4 @@ data class EventObject(
     var hour:String,
     var address: String,
     //var imageEvent: Int
-    ):Parcelable
+    ) : Parcelable

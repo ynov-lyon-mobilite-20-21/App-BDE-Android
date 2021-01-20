@@ -12,7 +12,6 @@ import com.example.ynov_lyon_bde.ui.screens.event.HomeFragmentDirections
 
 class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
-    //Provides all the functionality for our list items
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var id: TextView? = null
         var name: TextView = itemView.findViewById(R.id.eventTitle)
@@ -21,17 +20,8 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
        var description:String? = null
         var hour: String? = null
         var address:String? = null
-
-       /* init {
-            itemView.setOnClickListener { v: View ->
-                val position: Int = adapterPosition
-                Toast.makeText(itemView.context,"you clicked on item ${position + 1}",Toast.LENGTH_SHORT).show()
-            }
-        }*/
     }
 
-
-    //Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -41,12 +31,10 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
         return ViewHolder(view)
     }
 
-    //Return the total count of items in the list
     override fun getItemCount(): Int {
         return data.size
     }
 
-    //Updates list data; Associates ViewHolder data
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, index: Int) {
         holder.name.text = data[index].name
         holder.type.text = data[index].type
@@ -59,8 +47,5 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
             val action = HomeFragmentDirections.actionHomeFragmentToCardDescription(data[index])
             view.findNavController().navigate(action)
         }
-
-        //holder.image.setImageResource(data[index].image)
-        //holder.imageHour.setImageResource(data[index].imageHour)
     }
 }
