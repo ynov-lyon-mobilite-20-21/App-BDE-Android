@@ -27,9 +27,10 @@ class HomeFragment : Fragment() {
     }
 
     private val  data = listOf(
-    EventObject("","ESPIT","Soirée Etudiante"),
-    EventObject("","ESPIT CHUPITOS","Soirée Etudiante"),
-    EventObject("","ESPIT CHUPITOS","Soirée Etudiante")
+    EventObject("","Espit","Soirée Etudiante","204","hgldkbchbqdljhcdbnlkbch<lbdhclb<dhlbchdbkl<cdbkcbdklhbvjk","21:00","5 rue de chez michel"),
+    EventObject("","Espit Night","Soirée Etudiante","dsdsq","hgldkbchbqdljcqschcdbnlkbch<lbdhclb<dhlbchdbkl<cdbkcbdklhbvjk","22:00","5 rue de chez michel"),
+    EventObject("","Espit de fou","Soirée Etudiante","54645","hgldkbchbqdljhcdbnlkbch<lbdhclb<dhlbchdbkl<cdbkcbdklhbvjk","21:00","5 rue de chez michel"),
+    EventObject("","Espit yes","Soirée Etudiante","204504","hgldkbchbqdljhcdbnlkbch<lbdhclb<dhlbchdbkl<cdbkcbdklhbvjk","21:00","5 rue de chez michel")
     )
 
     //Populate the views now that the layout has been inflated

@@ -6,19 +6,6 @@
     <string name="title_event">Espit Chupitos</string>
     <string name="type_event">Soirée Etudiante </string>
 
-    //card_description
-    <string name="title_event_card_description">ESPIT CHUPITOS </string>
-    <string name="type_event_card_description">SOIREE ETUDIANTE</string>
-    <string name="date_card_description">13/11/0</string>
-    <string name="hour_event">21H - 3H</string>
-    <string name="address_event">22 Rue Joseph Serlin, 69001 Lyon</string>
-    <string name="description_event">Vous l\'attendiez tous, la soirée la plus chaude de l\'année est de retour à Espit Chupitos !<br></br>
-<br></br>
-Rendez-vous ce mercredi 13 novembre de 21h à 3h !<br></br>
-Pour l\'occasion, tous les shots seront à 2€.<br></br>
-<br></br>
-L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2€ pour les adhérents au BDE et 5€ pour les non adhérents.<br></br>
-<br></br>
- On compte sur vous pour une soirée de folie !</string>
+    //card description
     <string name="button_place">Prendre ma place</string>
 </resources>

@@ -1,13 +1,9 @@
 package com.example.ynov_lyon_bde.domain.viewmodel.event
 
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ynov_lyon_bde.R
@@ -19,18 +15,20 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
     //Provides all the functionality for our list items
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var id: TextView? = null
-        var nameEvent: TextView = itemView.findViewById(R.id.eventTitle)
+        var name: TextView = itemView.findViewById(R.id.eventTitle)
         var type:TextView = itemView.findViewById(R.id.eventType)
-        //var image: ImageView = itemView.findViewById(R.id.imageEvent)
+        var date: TextView = itemView.findViewById(R.id.dateEvent)
+        var description:TextView = itemView.findViewById(R.id.eventDescription)
+        var hour: TextView = itemView.findViewById(R.id.eventHour)
+        var address:TextView = itemView.findViewById(R.id.eventAddress)
 
-        init {
+       /* init {
             itemView.setOnClickListener { v: View ->
                 val position: Int = adapterPosition
                 Toast.makeText(itemView.context,"you clicked on item ${position + 1}",Toast.LENGTH_SHORT).show()
             }
-        }
+        }*/
     }
-
 
 
     //Create new views (invoked by the layout manager)
@@ -50,12 +48,17 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
 
     //Updates list data; Associates ViewHolder data
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, index: Int) {
-        holder.nameEvent.text = data[index].nameEvent
+        holder.name.text = data[index].name
         holder.type.text = data[index].type
+        holder.address.text = data[index].address
+        holder.description.text = data[index].description
+        holder.hour.text = data[index].hour
+        holder.date.text = data[index].date
 
         holder.itemView.setOnClickListener { view ->
-            
-            view.findNavController().navigate(R.id.action_homeFragment_to_card_description)
+
+            val action = HomeFragmentDirections.actionHomeFragmentToCardDescription(data[index])
+            view.findNavController().navigate(action)
         }
 
         //holder.image.setImageResource(data[index].image)

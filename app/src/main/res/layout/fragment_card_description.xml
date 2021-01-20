@@ -47,7 +47,7 @@
                 android:id="@+id/eventTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/title_event_card_description"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="45sp" />
 
@@ -56,7 +56,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/eventTitle"
-                android:text="@string/type_event_card_description"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="13sp"/>
 
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="0dp"
                     android:layout_toStartOf="@+id/eventImageHour"
-                    android:text="@string/date_card_description"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -93,7 +93,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="30dp"
-                    android:text="@string/hour_event"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp" />
             </RelativeLayout>
@@ -104,7 +104,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/eventTime"
                 android:layout_marginTop="35dp"
-                android:text="@string/address_event"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="15sp"/>
 
@@ -112,7 +112,7 @@
                 android:id="@+id/eventDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/description_event"
+                android:text=""
                 android:textColor="@color/black"
                 android:layout_below="@+id/eventAddress"
                 android:layout_marginTop="35dp"
