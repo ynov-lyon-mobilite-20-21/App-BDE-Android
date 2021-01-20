@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
+import kotlinx.android.synthetic.main.fragment_card_description.*
 import kotlinx.android.synthetic.main.fragment_card_description.view.*
 
 class CardDescription : Fragment() {
@@ -26,23 +27,12 @@ class CardDescription : Fragment() {
 
         val eventObject = args.eventObject
 
-        val name: TextView = view.findViewById(R.id.eventTitle)
-        name.setText(eventObject.name)
-
-        val type:TextView = view.findViewById(R.id.eventDescriptionType)
-        type.setText(eventObject.type)
-
-        val date:TextView = view.findViewById(R.id.dateEvent)
-        date.setText(eventObject.date)
-
-        val description:TextView = view.findViewById(R.id.eventDescription)
-        description.setText(eventObject.description)
-
-        val hour:TextView = view.findViewById(R.id.eventHour)
-        hour.setText(eventObject.hour)
-
-        val address:TextView = view.findViewById(R.id.eventAddress)
-        address.setText(eventObject.address)
+        view.eventTitle.text = eventObject.name
+        view.eventDescriptionType.text = eventObject.type
+        view.dateEvent.text = eventObject.date
+        view.eventDescription.text = eventObject.description
+        view.eventHour.text = eventObject.hour
+        view.eventAddress.text = eventObject.address
         return view
     }
 

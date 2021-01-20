@@ -85,7 +85,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="0dp"
                     android:layout_toStartOf="@+id/eventHour"
-                    android:src="@drawable/horloge"/>
+                    android:src="@drawable/kolok_biere"/>
 
                 <TextView
                     android:id="@+id/eventHour"
