@@ -17,10 +17,10 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
         var id: TextView? = null
         var name: TextView = itemView.findViewById(R.id.eventTitle)
         var type:TextView = itemView.findViewById(R.id.eventType)
-        var date: TextView = itemView.findViewById(R.id.dateEvent)
-        var description:TextView = itemView.findViewById(R.id.eventDescription)
-        var hour: TextView = itemView.findViewById(R.id.eventHour)
-        var address:TextView = itemView.findViewById(R.id.eventAddress)
+        var date: String? = null
+       var description:String? = null
+        var hour: String? = null
+        var address:String? = null
 
        /* init {
             itemView.setOnClickListener { v: View ->
@@ -50,13 +50,12 @@ class RecyclerViewAdapter(private val data: List<EventObject>) : RecyclerView.Ad
     override fun onBindViewHolder(holder: RecyclerViewAdapter.ViewHolder, index: Int) {
         holder.name.text = data[index].name
         holder.type.text = data[index].type
-        holder.address.text = data[index].address
-        holder.description.text = data[index].description
-        holder.hour.text = data[index].hour
-        holder.date.text = data[index].date
+       holder.address = data[index].address
+        holder.description = data[index].description
+        holder.hour = data[index].hour
+        holder.date = data[index].date
 
         holder.itemView.setOnClickListener { view ->
-
             val action = HomeFragmentDirections.actionHomeFragmentToCardDescription(data[index])
             view.findNavController().navigate(action)
         }

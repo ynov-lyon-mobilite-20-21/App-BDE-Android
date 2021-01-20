@@ -35,7 +35,7 @@ class CardDescription : Fragment() {
         val date:TextView = view.findViewById(R.id.dateEvent)
         date.setText(eventObject.date)
 
-        val description:TextView = view.findViewById(R.id.card_description)
+        val description:TextView = view.findViewById(R.id.eventDescription)
         description.setText(eventObject.description)
 
         val hour:TextView = view.findViewById(R.id.eventHour)
