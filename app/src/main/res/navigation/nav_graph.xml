@@ -50,5 +50,7 @@
         <action
             android:id="@+id/action_card_description_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument android:name="EventObject"
+            app:argType="string[]" />
     </fragment>
 </navigation>

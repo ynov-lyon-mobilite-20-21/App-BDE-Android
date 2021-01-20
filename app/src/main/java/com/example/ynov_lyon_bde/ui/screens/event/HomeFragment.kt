@@ -23,18 +23,11 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
 
-        //TODO Il faut chercher sur internet deux choses :
-        // Est-ce qu'on peut afficher des éléments dynamique dans une listView, si oui, essayer comme ça
-        // Est-ce qu'on peut afficher des éléments dynamique dans un linearLayout qui est lui-même dans une scrollView ?
-        // L'objectif est de créer une liste d'éléments graphiques *card* basé sur le nombre d'élément contenu dans eventViewModel.eventList
-
-        //TODO avec cette liste il faut envoyer les infos de chaque Event() de la liste dans les paramètres de la card (Titre, image, eventType)
-
         return view
     }
 
     private val  data = listOf(
-    EventObject("","ESPIT CHUPITOS","Soirée Etudiante"),
+    EventObject("","ESPIT","Soirée Etudiante"),
     EventObject("","ESPIT CHUPITOS","Soirée Etudiante"),
     EventObject("","ESPIT CHUPITOS","Soirée Etudiante")
     )
@@ -42,6 +35,8 @@ class HomeFragment : Fragment() {
     //Populate the views now that the layout has been inflated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         //RecyclerView initialized here
         recyclerViewCard.apply {
             //Set a LinearLayoutManager to handle Android; Correctly positions all the data in the list.
@@ -51,5 +46,3 @@ class HomeFragment : Fragment() {
         }
     }
 }
-
-
