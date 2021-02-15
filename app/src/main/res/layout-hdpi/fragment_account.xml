@@ -27,7 +27,6 @@
                 app:layout_constraintEnd_toEndOf="parent">
 
                 <!-- Campus image -->
-                <!-- Campus image -->
                 <ImageView
                     android:id="@+id/ynov_campus"
                     android:layout_width="80dp"
