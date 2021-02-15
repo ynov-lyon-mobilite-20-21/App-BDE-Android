@@ -2,16 +2,18 @@ package com.example.ynov_lyon_bde.ui.screens.profil
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.data.model.Event
+import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.data.model.EventType
 import com.example.ynov_lyon_bde.data.model.ImageType
+import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
+import com.example.ynov_lyon_bde.ui.screens.MainActivity
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
@@ -37,9 +39,7 @@ class ProfileFragment : Fragment() {
         view.action_delete.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
-
         }
-
         return view
     }
 
@@ -56,3 +56,5 @@ class ProfileFragment : Fragment() {
         }
     }
 }
+
+
