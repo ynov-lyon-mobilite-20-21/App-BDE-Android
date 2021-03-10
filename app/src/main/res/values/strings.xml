@@ -44,4 +44,9 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     //fragment QRCodeScanner
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="qrcode_scanpls">Scanner le QR-Code</string>
+    <string name="button_place">Prendre ma place</string>
+
+    //fragment_account
+    <string name="my_informations">MES INFORMATIONS</string>
+    <string name="my_tickets">MES BILLETS</string>
 </resources>
