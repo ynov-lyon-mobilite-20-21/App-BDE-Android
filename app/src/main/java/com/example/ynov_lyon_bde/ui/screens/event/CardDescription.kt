@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.domain.viewmodel.scanner.QRScannerViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
 import kotlinx.android.synthetic.main.fragment_card_description.view.*
 
 class CardDescription : Fragment() {
@@ -41,6 +42,12 @@ class CardDescription : Fragment() {
         view.eventDescription.text = event.description
         view.eventHour.text = event.date
         view.eventAddress.text = event.address
+
+        view.button_take_place.setOnClickListener {
+            //REDIRECT CONNECT (if user current isn't connect)
+            val redirectService = RedirectConnectService()
+            context?.let { activity?.let { it1 -> redirectService.redirect(it, it1, RedirectConnectService.TypeAlertDialog.ACHAT) } }
+        }
         return view
     }
 
