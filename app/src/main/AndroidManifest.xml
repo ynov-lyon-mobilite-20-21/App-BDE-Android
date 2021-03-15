@@ -34,7 +34,8 @@
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation"/>
 
-        <activity android:name="com.Scanner">
+        <activity android:name="com.Scanner"
+            android:screenOrientation="portrait">
         </activity>
 
     </application>

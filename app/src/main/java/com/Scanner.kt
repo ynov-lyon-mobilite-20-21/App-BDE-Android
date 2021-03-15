@@ -1,35 +1,51 @@
 package com
 
+import android.Manifest.permission.CAMERA
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.app.ActivityCompat
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navArgs
 import com.example.ynov_lyon_bde.R
 import com.journeyapps.barcodescanner.BarcodeView
-import com.journeyapps.barcodescanner.DecoratedBarcodeView
+import kotlinx.android.synthetic.main.activity_scanner.*
 
 
-class Scanner : Activity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scanner)
-
-        val scanner = findViewById<DecoratedBarcodeView>(R.id.scanner)
-        scanner.initializeFromIntent(intent)
-    }
-
-//        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        if (resultCode == Activity.RESULT_OK){
-//            val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-//            if (result != null) {
-//                if (result.contents == null) {
-//                    Toast.makeText(activity, "Cancelled", Toast.LENGTH_LONG).show()
-//                } else {
-//                    Toast.makeText(activity, "Scanned: " + result.contents, Toast.LENGTH_LONG).show()
-//                }
-//            } else {
-//                super.onActivityResult(requestCode, resultCode, data)
+//class Scanner : Activity() {
+//    private val args:ScannerArgs by navArgs()
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_scanner)
+//
+//        ActivityCompat.requestPermissions(this, arrayOf(CAMERA), 100)
+//
+//        val scanner = findViewById<BarcodeView>(R.id.scanner)
+//        val name = findViewById<TextView>(R.id.name_person)
+//        val ticket = findViewById<TextView>(R.id.ticket_person)
+//        val nameEvent = findViewById<TextView>(R.id.title_event_qrcode)
+//        val button = findViewById<Button>(R.id.back_button_carddescription)
+//
+//        button.setOnClickListener{ }
+//
+//        val event = args.Event
+//        nameEvent.text = event.name
+//
+//        scanner.decodeSingle {
+//            if (it.result.text != null){
+//                name.text = it.result.text
+//                ticket.text = it.result.text
 //            }
 //        }
 //    }
-}
+//
+//    override fun onResume() {
+//        super.onResume()
+//        scanner.resume()
+//    }
+//
+//}
+

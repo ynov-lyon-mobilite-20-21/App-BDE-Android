@@ -40,13 +40,6 @@ class ProfileFragment : Fragment() {
 
         }
 
-        view.button_scanner.setOnClickListener {
-            view.button_scanner.findNavController().navigate(R.id.action_accountFragment_to_scanner2)
-        }
-
-        view.btn_qr.setOnClickListener {
-            view.btn_qr.findNavController().navigate(R.id.action_accountFragment_to_qrCode)
-        }
         return view
     }
 

@@ -12,20 +12,14 @@
         tools:layout="@layout/fragment_events">
         <action
             android:id="@+id/action_eventsFragment_to_cardDescription2"
-            app:destination="@id/cardDescription" />
+            app:destination="@id/cardDescription"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.ynov_lyon_bde.ui.screens.profil.ProfileFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account">
-        <action
-            android:id="@+id/action_accountFragment_to_qrCode"
-            app:destination="@id/qrCode" />
-        <action
-            android:id="@+id/action_accountFragment_to_scanner2"
-            app:destination="@id/scanner2" />
-    </fragment>
+        tools:layout="@layout/fragment_account"/>
 
     <fragment
         android:id="@+id/cardDescription"
@@ -35,19 +29,19 @@
         <argument
             android:name="Event"
             app:argType="com.example.ynov_lyon_bde.data.model.Event" />
+        <action
+            android:id="@+id/action_cardDescription_to_QRScannerFragment"
+            app:destination="@id/QRScannerFragment" />
     </fragment>
 
     <action android:id="@+id/action_global_eventsFragment" app:destination="@id/eventsFragment"/>
     <action android:id="@+id/action_global_accountFragment" app:destination="@id/accountFragment"/>
     <fragment
-        android:id="@+id/qrCode"
-        android:name="com.example.ynov_lyon_bde.QrCode"
-        android:label="fragment_qr_code"
-        tools:layout="@layout/fragment_qr_code" />
-    <activity
-        android:id="@+id/scanner2"
-        android:name="com.Scanner"
-        android:label="activity_scanner"
-        tools:layout="@layout/activity_scanner" />
-
+        android:id="@+id/QRScannerFragment"
+        android:name="com.example.ynov_lyon_bde.ui.screens.scanner.QRScannerFragment"
+        android:label="QRScannerFragment" >
+        <argument
+            android:name="Event"
+            app:argType="com.example.ynov_lyon_bde.data.model.Event" />
+    </fragment>
 </navigation>

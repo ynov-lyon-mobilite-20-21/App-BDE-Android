@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
-import kotlinx.android.synthetic.main.fragment_card_description.*
 import kotlinx.android.synthetic.main.fragment_card_description.view.*
 
 class CardDescription : Fragment() {
@@ -21,10 +21,14 @@ class CardDescription : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_card_description, container, false)
+        val event = args.Event
 
         view.back_home_fragment.setOnClickListener { findNavController().popBackStack() }
 
-        val event = args.Event
+        view.qrcode_button.setOnClickListener{
+            val action = CardDescriptionDirections.actionCardDescriptionToQRScannerFragment(event)
+            view.findNavController().navigate(action)
+        }
 
         view.eventTitle.text = event.name
         view.eventDescriptionType.text = event.type.eventType
