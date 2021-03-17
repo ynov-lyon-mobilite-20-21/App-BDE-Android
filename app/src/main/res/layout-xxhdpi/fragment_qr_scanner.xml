@@ -21,7 +21,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginStart="25dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:background="@drawable/descriptioncard_button_back_homefragment"/>
@@ -29,7 +29,7 @@
         <RelativeLayout
             android:id="@+id/relative_card"
             android:layout_width="0dp"
-            android:layout_height="350dp"
+            android:layout_height="320dp"
             android:layout_marginStart="17dp"
             android:layout_marginEnd="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -49,8 +49,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="310dp"
-                android:layout_height="310dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 app:cardCornerRadius="20dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -69,7 +69,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
             </androidx.cardview.widget.CardView>
-
         </RelativeLayout>
 
         <TextView
@@ -78,7 +77,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/size_titleEventScan"
+            android:background="@color/title_onboarding"
             android:fontFamily="@font/roboto_bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,8 +90,9 @@
             android:layout_height="wrap_content"
             android:text="@string/qrcode_scanpls"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/size_infoQR"
             android:layout_marginBottom="16dp"
+            android:background="@color/title_onboarding"
             android:fontFamily="@font/roboto_medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +104,8 @@
             android:layout_height="wrap_content"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/size_infoPerson"
+            android:background="@color/title_onboarding"
             android:fontFamily="@font/roboto_medium"
             app:layout_constraintTop_toBottomOf="@id/relative_card"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,8 +116,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:background="@color/title_onboarding"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="@dimen/size_infoPerson"
             android:fontFamily="@font/roboto_medium"
             app:layout_constraintTop_toBottomOf="@id/name_person"
             app:layout_constraintEnd_toEndOf="parent"

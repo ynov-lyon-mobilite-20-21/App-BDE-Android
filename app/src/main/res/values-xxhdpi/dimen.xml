@@ -18,4 +18,9 @@
     <dimen name="size_eventAddress">16sp</dimen>
     <dimen name="size_eventDescription">15sp</dimen>
     <dimen name="size_button">14sp</dimen>
+
+    //QrScanner
+    <dimen name="size_titleEventScan">22sp</dimen>
+    <dimen name="size_infoQR">14sp</dimen>
+    <dimen name="size_infoPerson">16sp</dimen>
 </resources>

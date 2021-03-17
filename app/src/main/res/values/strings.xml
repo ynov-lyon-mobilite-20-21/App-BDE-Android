@@ -38,4 +38,6 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
  On compte sur vous pour une soirée de folie !</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="qrcode_scanpls">Scanner le QR-Code</string>
 </resources>
