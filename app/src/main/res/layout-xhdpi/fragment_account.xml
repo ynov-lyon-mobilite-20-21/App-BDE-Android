@@ -91,7 +91,7 @@
 
                         <TextView
                             android:id="@+id/name"
-                            android:layout_width="0dp"
+                            android:layout_width="175dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/roboto_bold"
                             android:shadowColor="@color/shadow_home_fragment"
@@ -102,8 +102,8 @@
                             android:textColor="#17182F"
                             android:textSize="14sp"
                             android:textStyle="bold"
+                            android:paddingEnd="8dp"
                             app:layout_constraintBottom_toTopOf="@id/filiere"
-                            app:layout_constraintEnd_toStartOf="@+id/settings"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,6 +114,7 @@
                             android:layout_height="wrap_content"
                             android:src="@drawable/icon_options"
                             android:layout_marginEnd="8dp"
+                            app:layout_constraintHorizontal_bias="0"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintBottom_toBottomOf="@id/name"
                             app:layout_constraintStart_toEndOf="@id/name"
