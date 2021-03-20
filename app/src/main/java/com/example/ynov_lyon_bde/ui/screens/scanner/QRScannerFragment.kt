@@ -27,20 +27,17 @@ class QRScannerFragment : Fragment() {
         val event = args.Event
         val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-
         val viewModel = QRScannerViewModel()
-        viewModel.bottomGone(bottomNavigationBar)
+        viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
 
         view.back_button_carddescription.setOnClickListener{
             findNavController().popBackStack()
-            viewModel.bottomVisible(bottomNavigationBar)
+            viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
         }
 
-        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100) }
-
-        viewModel.printTitle(event, view)
+        viewModel.printTitleEvent(event, view)
         view.scanner.decodeSingle {
-            viewModel.printInfo(view,it.result.text)
+            viewModel.printNameOfClient(view,it.result.text)
         }
 
         return view

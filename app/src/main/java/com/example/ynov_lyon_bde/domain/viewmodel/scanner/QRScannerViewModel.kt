@@ -9,23 +9,20 @@ import kotlinx.android.synthetic.main.fragment_qr_scanner.view.*
 
 class QRScannerViewModel {
 
-    fun printTitle (event: Event, view:View){
+    fun printTitleEvent (event: Event, view:View){
         view.title_event_qrcode.text = event.name
     }
 
-    fun bottomGone(bottomNavigationBar:BottomNavigationView?){
-        bottomNavigationBar?.visibility = View.GONE
+    fun printNameOfClient(view: View,it:String){
+        view.name_person.text = it
+        view.ticket_person.text = it
     }
 
-    fun printInfo(view: View,it:String){
-        if (it != null){
-            view.name_person.text = it
-            view.ticket_person.text = it
+    fun changeVisibilityBottomNavigationBar(bottomNavigationBar:BottomNavigationView?){
+        if (bottomNavigationBar?.visibility == 0){
+            bottomNavigationBar?.visibility = View.GONE
+        }else{
+            bottomNavigationBar?.visibility = View.VISIBLE
         }
     }
-
-    fun bottomVisible(bottomNavigationBar:BottomNavigationView?){
-        bottomNavigationBar?.visibility = View.GONE
-    }
-
 }
