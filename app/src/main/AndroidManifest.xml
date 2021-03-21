@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".ui.screens.MainActivity">
+        <activity android:name=".ui.screens.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,12 +35,7 @@
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
-            tools:replace="screenOrientation"/>
-
-        <activity android:name="com.Scanner"
-            android:screenOrientation="portrait">
-        </activity>
-
+            tools:replace="screenOrientation" />
     </application>
 
 </manifest>

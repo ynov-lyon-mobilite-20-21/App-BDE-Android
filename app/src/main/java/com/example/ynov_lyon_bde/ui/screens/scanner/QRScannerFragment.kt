@@ -27,6 +27,8 @@ class QRScannerFragment : Fragment() {
         val event = args.Event
         val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
+        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100) }
+
         val viewModel = QRScannerViewModel()
         viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
 
