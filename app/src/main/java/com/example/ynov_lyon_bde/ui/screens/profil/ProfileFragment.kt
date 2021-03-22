@@ -42,7 +42,7 @@ class ProfileFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
-        view.action_delete.setOnClickListener {
+        view.settings.setOnClickListener {
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
         }
