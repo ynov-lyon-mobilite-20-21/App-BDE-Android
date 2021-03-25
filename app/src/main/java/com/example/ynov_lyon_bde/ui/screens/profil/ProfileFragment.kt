@@ -47,7 +47,7 @@ class ProfileFragment : Fragment() {
 //            val intent = Intent(activity, LoginActivity::class.java)
 //            startActivity(intent)
 
-            // Redirect to settings user profil fragment
+            // Redirect to settings user profile fragment
             Navigation.findNavController(view)
                 .navigate(R.id.actionAccountFragmentToSettingsUserProfil);
         }

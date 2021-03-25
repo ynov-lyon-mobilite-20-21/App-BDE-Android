@@ -47,6 +47,7 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     <string name="my_informations">MES INFORMATIONS</string>
     <string name="my_tickets">MES BILLETS</string>
     //fragment_settings_user_profil
+    <string name="fragment_settings_user_profil_title">Réglages</string>
     <string name="personal_information">Information personnelles</string>
     <string name="how_use_app">Comment utiliser l\'appplication</string>
     <string name="payment_information">Information de payement</string>
