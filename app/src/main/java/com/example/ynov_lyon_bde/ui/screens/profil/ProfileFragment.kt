@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ynov_lyon_bde.data.model.Event
 import com.example.ynov_lyon_bde.R
@@ -13,6 +15,7 @@ import com.example.ynov_lyon_bde.data.model.EventType
 import com.example.ynov_lyon_bde.data.model.ImageType
 import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
+import com.example.ynov_lyon_bde.ui.screens.event.CardDescriptionDirections
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
 
@@ -41,8 +44,12 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
         view.settings.setOnClickListener {
-            val intent = Intent(activity, LoginActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(activity, LoginActivity::class.java)
+//            startActivity(intent)
+
+            // Redirect to settings user profil fragment
+            Navigation.findNavController(view)
+                .navigate(R.id.actionAccountFragmentToSettingsUserProfil);
         }
         return view
     }

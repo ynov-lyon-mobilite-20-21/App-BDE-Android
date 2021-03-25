@@ -39,7 +39,7 @@
             android:id="@+id/tiHowUseApp"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            a android:layout_margin="20dp"
+            android:layout_margin="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
             app:backgroundTint="@color/settings_choice"

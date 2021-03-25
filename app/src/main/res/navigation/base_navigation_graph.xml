@@ -19,7 +19,11 @@
         android:id="@+id/accountFragment"
         android:name="com.example.ynov_lyon_bde.ui.screens.profil.ProfileFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account"/>
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/actionAccountFragmentToSettingsUserProfil"
+            app:destination="@id/settingsUserProfil" />
+    </fragment>
 
     <fragment
         android:id="@+id/cardDescription"
@@ -44,4 +48,9 @@
             android:name="Event"
             app:argType="com.example.ynov_lyon_bde.data.model.Event" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsUserProfil"
+        android:name="com.example.ynov_lyon_bde.ui.screens.profil.SettingsUserProfil"
+        android:label="fragment_settings_user_profil"
+        tools:layout="@layout/fragment_settings_user_profil" />
 </navigation>
