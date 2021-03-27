@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/settings_fields_bloc">
+        app:layout_constraintBottom_toTopOf="@+id/recap_fields_bloc">
 
         <!-- Back icon -->
         <ImageView
@@ -49,6 +49,96 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_icon"
             app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- Recap fields bloc -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recap_fields_bloc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_bloc"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!-- Lastname - Firstname -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiLastNamFirstName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/settings_choice"
+            android:hint="@string/labelName"
+            android:textColorHint="#23B2A4"
+            app:boxBackgroundColor="@color/settings_choice"
+            app:boxBackgroundMode="filled"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/tiPromotion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextLastNameFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:text="HAMEL-POIRAT MAEVA"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Promotion -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiPromotion"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textColorHint="#23B2A4"
+            app:boxBackgroundColor="@color/settings_choice"
+            android:background="@color/settings_choice"
+            android:hint="@string/labelPromotion"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:boxBackgroundMode="filled"
+            app:layout_constraintBottom_toTopOf="@+id/editPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tiLastNamFirstName">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPromotion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="B2 - Création et Design"
+                android:enabled="false"
+                android:textColor="@color/black"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Edit password-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="55dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/settings_choice"
+            app:backgroundTint="@color/settings_choice"
+            android:hint="@string/edit_my_password"
+            android:drawableTint="#707070"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tiPromotion" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
