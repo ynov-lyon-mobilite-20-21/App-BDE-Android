@@ -57,6 +57,18 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     <string name="fragment_personal_informations_user_title">Informations Personnelles</string>
     <string name="labelName"><font size="35">Nom Prénom</font></string>
     <string name="labelPromotion"><font size="35">Niveau/Filière</font></string>
+    //--- xhdpi ---
+    <string name="labelName_xhdpi"><font size="25">Nom Prénom</font></string>
+    <string name="labelPromotion_xhdpi"><font size="25">Niveau/Filière</font></string>
+    //--- xhdpi ---
+    //--- mdpi ---
+    <string name="labelName_mdpi"><font size="13">Nom Prénom</font></string>
+    <string name="labelPromotion_mdpi"><font size="13">Niveau/Filière</font></string>
+    //--- mdpi ---
+    //--- hdpi ---
+    <string name="labelName_hdpi"><font size="16">Nom Prénom</font></string>
+    <string name="labelPromotion_hdpi"><font size="16">Niveau/Filière</font></string>
+    //--- hdpi ---
     <string name="edit_my_password">Modifier mon mot de passe</string>
     <string name="edit">Modifier</string>
 </resources>

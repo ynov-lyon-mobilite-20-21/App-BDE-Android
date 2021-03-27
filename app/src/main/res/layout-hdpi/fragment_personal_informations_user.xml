@@ -39,24 +39,23 @@
             android:id="@+id/settings_fields_bloc_title"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="26dp"
+            android:layout_marginStart="10dp"
             android:fontFamily="@font/roboto_bold"
             android:padding="16dp"
             android:text="@string/fragment_personal_informations_user_title"
             android:textColor="#000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_icon"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- Recap fields bloc -->
+    <!-- Recap fields bloc -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recap_fields_bloc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title_bloc"
         app:layout_constraintStart_toStartOf="parent">
@@ -66,12 +65,12 @@
             android:id="@+id/tiLastNamFirstName"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="26dp"
             android:layout_marginEnd="20dp"
             android:background="@color/settings_choice"
-            android:hint="@string/labelName"
+            android:hint="@string/labelName_hdpi"
             android:textColorHint="#23B2A4"
             app:boxBackgroundColor="@color/settings_choice"
             app:boxBackgroundMode="filled"
@@ -86,7 +85,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:enabled="false"
-                android:text="HAMEL-POIRAT MAEVA"
+                android:text="HAMEL-POIRAT Maeva"
+                android:textSize="13dp"
                 android:textColor="@color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,14 +95,14 @@
             android:id="@+id/tiPromotion"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="50dp"
             android:layout_marginTop="26dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:textColorHint="#23B2A4"
             app:boxBackgroundColor="@color/settings_choice"
             android:background="@color/settings_choice"
-            android:hint="@string/labelPromotion"
+            android:hint="@string/labelPromotion_hdpi"
             app:boxStrokeWidth="0dp"
             app:boxStrokeWidthFocused="0dp"
             app:boxBackgroundMode="filled"
@@ -116,6 +116,7 @@
                 android:layout_height="wrap_content"
                 android:text="B2 - Création et Design"
                 android:enabled="false"
+                android:textSize="13dp"
                 android:textColor="@color/black"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,7 +124,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="50dp"
             android:layout_marginTop="55dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
@@ -132,7 +133,7 @@
             android:hint="@string/edit_my_password"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="16sp"
+            android:textSize="13sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
