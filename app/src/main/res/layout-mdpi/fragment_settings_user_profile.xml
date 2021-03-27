@@ -44,7 +44,7 @@
             android:padding="16dp"
             android:text="@string/fragment_settings_user_profil_title"
             android:textColor="#000"
-            android:textSize="24sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/back_icon"
