@@ -14,21 +14,17 @@ class SettingsUserProfile : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-
+        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_settings_user_profile, container, false)
-
         // Redirect to last view
         view.back_icon.setOnClickListener{
             findNavController().popBackStack()
         }
-
         //Redirect to personal informations user fragment
         view.personalInformationButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.actionSettingsUserProfileToPersonalInformationsUser)
         }
-
-        // Inflate the layout for this fragment
         return view
     }
 }

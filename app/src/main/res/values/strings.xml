@@ -53,4 +53,8 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     <string name="payment_information">Information de payement</string>
     <string name="delete_account">Supprimer le compte</string>
     <string name="logout">Déconnexion</string>
+    //fragment_personal_informations_user
+    <string name="fragment_personal_informations_user_title">Informations Personnelles</string>
+    <string name="edit_my_password">Modifier mon mot de passe</string>
+    <string name="edit">Modifier</string>
 </resources>
