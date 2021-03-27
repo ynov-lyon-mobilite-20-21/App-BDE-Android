@@ -2,6 +2,7 @@ package com.example.ynov_lyon_bde.ui.screens.profil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,6 +17,7 @@ import com.example.ynov_lyon_bde.data.model.ImageType
 import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import com.example.ynov_lyon_bde.ui.screens.event.CardDescriptionDirections
+import com.example.ynov_lyon_bde.domain.services.RedirectService
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
 
@@ -49,7 +51,7 @@ class ProfileFragment : Fragment() {
 
             // Redirect to settings user profile fragment
             Navigation.findNavController(view)
-                .navigate(R.id.actionAccountFragmentToSettingsUserProfil);
+                .navigate(R.id.actionAccountFragmentToSettingsUserProfile);
         }
         return view
     }
@@ -66,8 +68,6 @@ class ProfileFragment : Fragment() {
             adapter = RecyclerViewAdapter(data)
         }
     }
-
-
 }
 
 
