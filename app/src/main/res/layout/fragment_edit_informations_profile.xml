@@ -16,7 +16,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/recap_fields_bloc">
+    app:layout_constraintBottom_toTopOf="@+id/scrollViewContent">
 
     <!-- Back icon -->
     <ImageView
@@ -51,100 +51,243 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!-- Edit fields bloc -->
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/recap_fields_bloc"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="32dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/title_bloc"
-    app:layout_constraintStart_toStartOf="parent">
-
-    <!-- Lastname -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiLastName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/settings_choice"
-        android:hint="@string/labelLastName"
-        android:textColorHint="#23B2A4"
-        app:boxBackgroundColor="@color/settings_choice"
-        app:boxBackgroundMode="filled"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/tiFirstName"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ScrollView
+        android:id="@+id/scrollViewContent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/title_bloc"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextLastName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!-- Edit fields bloc -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/recap_fields_bloc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="HAMEL-POIRAT"
-            android:textColor="@color/black"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bloc"
+            app:layout_constraintStart_toStartOf="parent">
 
-    <!-- Firstname -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tiFirstName"
-        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="26dp"
-        android:layout_marginEnd="20dp"
-        android:background="@color/settings_choice"
-        android:hint="@string/labelFirstName"
-        android:textColorHint="#23B2A4"
-        app:boxBackgroundColor="@color/settings_choice"
-        app:boxBackgroundMode="filled"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tiLastName">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextFirstName"
+            <!-- Lastname -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiLastName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/settings_choice"
+                android:hint="@string/labelLastName"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiFirstName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HAMEL-POIRAT"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Firstname -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiFirstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/settings_choice"
+                android:hint="@string/labelFirstName"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiLevel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiLastName">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Maeva"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Level-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiLevel"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:hint="@string/labelPromotionLevel"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiFormation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiFirstName">
+                <AutoCompleteTextView
+                    android:id="@+id/editLevel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="B2" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Filière-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiFormation"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:hint="@string/labelPromotionSchool"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiLastPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiLevel">
+                <AutoCompleteTextView
+                    android:id="@+id/editFormation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Création et Design" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Last password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiLastPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/settings_choice"
+                android:hint="@string/last_password"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiFirstName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiFormation">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextLastPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- New password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiNewPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/settings_choice"
+                android:hint="@string/new_password"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toTopOf="@+id/tiConfirmNewPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiLastPassword">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextNewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Confirm new password -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tiConfirmNewPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/settings_choice"
+                android:hint="@string/confirm_new_password"
+                android:textColorHint="#23B2A4"
+                app:boxBackgroundColor="@color/settings_choice"
+                app:boxBackgroundMode="filled"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tiNewPassword">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextConfirmNewPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/editButtonContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:enabled="false"
-            android:text="Maeva"
-            android:textColor="@color/black"/>
-    </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/recap_fields_bloc">
+            <Button
+                android:id="@+id/editProfile"
+                style="@style/Widget.AppCompat.Button"
+                android:layout_width="158dp"
+                android:layout_height="36dp"
+                android:background="@drawable/createuser_figure_button"
+                app:backgroundTint="#17182F"
+                android:text="@string/validate"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_regular"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/editButtonContent"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/recap_fields_bloc">
-    <Button
-        android:id="@+id/editProfile"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="158dp"
-        android:layout_height="36dp"
-        android:background="@drawable/createuser_figure_button"
-        app:backgroundTint="#17182F"
-        android:text="@string/edit"
-        android:textAllCaps="false"
-        android:fontFamily="@font/roboto_regular"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
