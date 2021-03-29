@@ -87,7 +87,8 @@
                 android:layout_height="wrap_content"
                 android:enabled="false"
                 android:text="HAMEL-POIRAT Maeva"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Promotion -->
@@ -116,7 +117,8 @@
                 android:layout_height="wrap_content"
                 android:text="B2 - Création et Design"
                 android:enabled="false"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="14sp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Edit password-->
@@ -132,7 +134,7 @@
             android:hint="@string/edit_my_password"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

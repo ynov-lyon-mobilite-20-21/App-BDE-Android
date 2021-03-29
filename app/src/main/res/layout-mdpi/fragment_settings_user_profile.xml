@@ -100,6 +100,7 @@
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toTopOf="@+id/payementInformationButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/personalInformationButton"/>
@@ -121,6 +122,7 @@
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/howUseAppButton"/>
@@ -142,6 +144,7 @@
             android:textAlignment="textStart"
             android:textSize="18sp"
             android:fontFamily="@font/roboto_regular"
+            app:layout_constraintBottom_toTopOf="@+id/logoutButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/payementInformationButton"/>
