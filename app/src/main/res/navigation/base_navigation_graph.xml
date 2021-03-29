@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsUserProfile"
-        android:name="com.example.ynov_lyon_bde.ui.screens.profil.SettingsUserProfile"
+        android:name="com.example.ynov_lyon_bde.ui.screens.profil.SettingsUserProfileFragment"
         android:label="fragment_settings_user_profile"
         tools:layout="@layout/fragment_settings_user_profile" >
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/personalInformationsUser"
-        android:name="com.example.ynov_lyon_bde.ui.screens.profil.PersonalInformationsUser"
+        android:name="com.example.ynov_lyon_bde.ui.screens.profil.PersonalInformationsUserFragment"
         android:label="fragment_personal_informations_user"
         tools:layout="@layout/fragment_personal_informations_user" />
 </navigation>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_sign_in_background"
-    tools:context=".ui.screens.profil.PersonalInformationsUser">
+    tools:context=".ui.screens.profil.PersonalInformationsUserFragment">
 
     <!-- Title personal informations bloc -->
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_sign_in_background"
-    tools:context=".ui.screens.profil.SettingsUserProfile">
+    tools:context=".ui.screens.profil.SettingsUserProfileFragment">
 
     <!-- Title settings bloc -->
     <androidx.constraintlayout.widget.ConstraintLayout
