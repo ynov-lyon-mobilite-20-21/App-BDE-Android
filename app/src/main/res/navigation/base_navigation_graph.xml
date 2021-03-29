@@ -61,5 +61,14 @@
         android:id="@+id/personalInformationsUser"
         android:name="com.example.ynov_lyon_bde.ui.screens.profil.PersonalInformationsUserFragment"
         android:label="fragment_personal_informations_user"
-        tools:layout="@layout/fragment_personal_informations_user" />
+        tools:layout="@layout/fragment_personal_informations_user" >
+        <action
+            android:id="@+id/actionPersonalInformationsUserToEditInformationsProfileFragment"
+            app:destination="@id/editInformationsProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editInformationsProfileFragment"
+        android:name="com.example.ynov_lyon_bde.ui.screens.profil.EditInformationsProfileFragment"
+        android:label="fragment_edit_informations_profile"
+        tools:layout="@layout/fragment_edit_informations_profile" />
 </navigation>
