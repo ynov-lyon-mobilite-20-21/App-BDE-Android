@@ -5,15 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import kotlinx.android.synthetic.main.fragment_edit_informations_profile.view.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.*
+import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.back_icon
 
 class EditInformationsProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_edit_informations_profile, container, false)
+
+        //Promotion values
+        val promotion = arrayOf("B1", "B2", "B3", "M1", "M2")
+        //Formation values
+        val formation = arrayOf(
+            "Animation 3D",
+            "Audiovisuel",
+            "Création & Design",
+            "Marketing Communication",
+            "Informatique"
+        )
+        //Create list
+        val adapterPromotion = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, promotion)
+        val adapterFormation = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formation)
+        //Add list to edit input
+        view.editLevel.setAdapter(adapterPromotion)
+        view.editFormation.setAdapter(adapterFormation)
+
         // Redirect to last view
         view.back_icon.setOnClickListener {
             findNavController().popBackStack()
