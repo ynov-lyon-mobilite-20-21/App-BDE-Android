@@ -35,14 +35,13 @@ class RedirectConnectService {
                             authenticationRequests.meAndRefreshToken(context)
                         } catch (err: Exception) {
                             needConnect = true
-                            Log.e("error", err.message)
+                            Log.e("redirectConnect", err.toString())
                         }
                     }
                     deferred.await()
                 }
             }
         }
-        Log.d("needconnect", needConnect.toString())
         if(needConnect){
             onAlertDialog(context, activity, typeAlertDialog)
         }

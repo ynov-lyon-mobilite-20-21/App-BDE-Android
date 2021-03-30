@@ -78,7 +78,7 @@ class SignUpFragment: Fragment() {
                 "formation vide", false)
 
             //call requests
-            if (firstName.isEmpty() && lastName.isEmpty() && mail != null && password != "" && promotion.isEmpty() && formation.isEmpty()) {
+            if (firstName.isNotEmpty() && lastName.isNotEmpty() && !mail.isNullOrEmpty() && password.isNotEmpty() && promotion.isNotEmpty() && formation.isNotEmpty()) {
                 var message: String? = null
                 GlobalScope.launch(Dispatchers.Main) {
                     val deferred = async(Dispatchers.IO) {

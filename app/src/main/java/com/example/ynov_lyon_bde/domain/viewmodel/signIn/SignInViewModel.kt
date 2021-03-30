@@ -24,7 +24,7 @@ class SignInViewModel : ViewModel() {
             }
         }
         catch (err: Exception) {
-            Log.e("message", err.message)
+            Log.e("login request", err.toString())
             message = gestionMessageErr(err.message)
         }
         return message

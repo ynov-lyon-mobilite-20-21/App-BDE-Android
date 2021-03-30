@@ -35,7 +35,7 @@ class SignUpViewModel : ViewModel() {
                 }
             }
         }catch(err : Exception){
-            Log.e("message", err.message)
+            Log.e("create request", err.toString())
             message = gestionMessageErr(err.message)
         }
         return message
