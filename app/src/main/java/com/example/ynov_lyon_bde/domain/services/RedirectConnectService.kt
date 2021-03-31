@@ -5,8 +5,10 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.navigation.findNavController
 import com.example.ynov_lyon_bde.domain.services.request.AuthenticationRequests
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -61,7 +63,7 @@ class RedirectConnectService {
             activity.startActivity(intent)
         }
         builder.setNegativeButton("Annuler") { dialog, which ->
-            activity?.finish()
+            activity.base_nav_host.findNavController().popBackStack()
         }
         builder.show()
     }

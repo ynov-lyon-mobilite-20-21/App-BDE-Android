@@ -68,7 +68,7 @@ class SignUpViewModel : ViewModel() {
             if(focus){
                 til.requestFocus()
             }
-            til.isErrorEnabled()
+            til.isErrorEnabled
             til.error = errMessage
             true
         }else{

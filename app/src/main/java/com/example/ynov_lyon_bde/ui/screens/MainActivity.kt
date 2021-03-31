@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.domain.di.dependencyInjectionModule
-import com.example.ynov_lyon_bde.domain.viewmodel.NavigationViewModel
+import com.example.ynov_lyon_bde.domain.viewmodel.NavigationService
 import com.example.ynov_lyon_bde.ui.screens.onboarding.OnBoardingActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.koin.androidContext
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
-        val viewModel = NavigationViewModel()
+        val viewModel = NavigationService()
 
         if (!onBoardingFinished()) {
             val intent = Intent(this, OnBoardingActivity::class.java)
