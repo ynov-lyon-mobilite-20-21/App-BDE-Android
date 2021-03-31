@@ -1,6 +1,8 @@
 package com.example.ynov_lyon_bde.ui.screens.profil
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -51,5 +53,16 @@ class EditInformationsProfileFragment : Fragment() {
         //Add list to edit input
         view.editLevel.setAdapter(adapterPromotion)
         view.editFormation.setAdapter(adapterFormation)
+
+        // Get form values
+        validateProfileButton.setOnClickListener {
+            val firstname = editTextFirstName.text.toString()
+            val lastname = editTextLastName.text.toString()
+            val level = editLevel.text.toString()
+            val promotion = editFormation.text.toString()
+            val lastPassword = editTextLastPassword.text.toString()
+            val newPassword = editTextNewPassword.text.toString()
+            val confirmNewPassword = editTextConfirmNewPassword.text.toString()
+        }
     }
 }
