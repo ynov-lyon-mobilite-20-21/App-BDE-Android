@@ -8,13 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.viewmodel.profile.EditViewModel
 import kotlinx.android.synthetic.main.fragment_edit_informations_profile.*
 import kotlinx.android.synthetic.main.fragment_edit_informations_profile.view.*
 import kotlinx.android.synthetic.main.fragment_personal_informations_user.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.back_icon
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
 
 class EditInformationsProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +37,9 @@ class EditInformationsProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val editViewModel = EditViewModel()
+
         // Get current user value and assign his values
         editTextLastName.setText("HAMEL-POIRAT")
         editTextFirstName.setText("Maeva")
@@ -63,6 +72,37 @@ class EditInformationsProfileFragment : Fragment() {
             val lastPassword = editTextLastPassword.text.toString()
             val newPassword = editTextNewPassword.text.toString()
             val confirmNewPassword = editTextConfirmNewPassword.text.toString()
+
+            // Check if all fields are not empty
+            if (firstname != null && lastname != null && level != null && promotion != null && lastPassword != "" && newPassword != "" && confirmNewPassword != "") {
+                // Check if new password and confirm password are equal
+//                if (confirmNewPassword === newPassword) {
+                    // Check if new password and confirm new passwor are different to last password
+                    if (lastPassword != newPassword || lastPassword != confirmNewPassword) {
+                        Toast.makeText(context, "Form OK", Toast.LENGTH_SHORT).show()
+                        var message: String? = null
+
+                        GlobalScope.launch(Dispatchers.Main) {
+                            val deferred = async(Dispatchers.IO) {
+                                //call requests
+                                message = context?.let { it1 -> editViewModel.edit(firstname, lastname, level, promotion, lastPassword, newPassword, confirmNewPassword, it1) }
+                            }
+                            deferred.await()
+                            if (message.isNullOrEmpty()) {
+                                activity?.finish()
+                            } else {
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(context, "Le nouveau mot de passe ne peut pas être identique à l'ancien", Toast.LENGTH_SHORT).show()
+                    }
+//                } else {
+//                    Toast.makeText(context, "Le nouveau mot de passe et la confirmation ne sont pas identique", Toast.LENGTH_SHORT).show()
+//                }
+            } else {
+                Toast.makeText(context, "Formulaire mal renseigné", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

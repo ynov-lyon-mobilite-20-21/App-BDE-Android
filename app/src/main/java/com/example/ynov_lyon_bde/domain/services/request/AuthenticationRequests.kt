@@ -2,6 +2,7 @@ package com.example.ynov_lyon_bde.domain.services.request
 
 import android.content.Context
 import android.util.Log
+import com.example.ynov_lyon_bde.data.model.DTO.EditUserDTO
 import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
 import com.example.ynov_lyon_bde.data.model.DTO.UserDTO
 import com.example.ynov_lyon_bde.data.model.User
@@ -41,6 +42,20 @@ class AuthenticationRequests() : KoinComponent {
         //Save token in shared preference
         sharedPreferencesService.saveIn("TOKEN", token!!, context)
         sharedPreferencesService.saveIn(    "refreshToken", refreshToken!!, context)
+        return success
+    }
+
+    // EDIT USER REQUEST
+    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
+        // Get token current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        // Call API
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
+        val success = errorManager.handleException(
+            response,
+            ErrorManager.ErrorType.ERROR
+        )
         return success
     }
 

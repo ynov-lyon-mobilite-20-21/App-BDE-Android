@@ -1,5 +1,6 @@
 package com.example.ynov_lyon_bde.ui.screens.profil
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +20,7 @@ import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import com.example.ynov_lyon_bde.ui.screens.event.CardDescriptionDirections
 import com.example.ynov_lyon_bde.domain.services.RedirectService
+import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
@@ -45,14 +48,19 @@ class ProfileFragment : Fragment() {
 
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
+        val sharedPreferencesService = SharedPreferencesService()
+        val currentUser = context?.let { it1 -> sharedPreferencesService.retrivedUser(it1) }
+        Log.i("MessageTest", "$currentUser")
 
         view.settings.setOnClickListener {
-//            val intent = Intent(activity, LoginActivity::class.java)
-//            startActivity(intent)
-
-            // Redirect to settings user profile fragment
-            Navigation.findNavController(view)
-                .navigate(R.id.actionAccountFragmentToSettingsUserProfile);
+//            if (currentUser != null) {
+                // Redirect to settings user profile fragment
+                Navigation.findNavController(view)
+                    .navigate(R.id.actionAccountFragmentToSettingsUserProfile);
+//            } else {
+//                val intent = Intent(activity, LoginActivity::class.java)
+//                startActivity(intent)
+//            }
         }
         return view
     }

@@ -157,6 +157,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editLevel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:enabled="false"
                         android:text=""
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -184,6 +185,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editFormation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:enabled="false"
                         android:text=""
                         android:textSize="14sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
