@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import kotlinx.android.synthetic.main.fragment_edit_informations_profile.*
 import kotlinx.android.synthetic.main.fragment_edit_informations_profile.view.*
+import kotlinx.android.synthetic.main.fragment_personal_informations_user.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.back_icon
 
@@ -17,6 +19,21 @@ class EditInformationsProfileFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.fragment_edit_informations_profile, container, false)
+
+        // Redirect to last view
+        view.back_icon.setOnClickListener {
+            findNavController().popBackStack()
+        }
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Get current user value and assign his values
+        editTextLastName.setText("HAMEL-POIRAT")
+        editTextFirstName.setText("Maeva")
+        editLevel.setText("B2")
+        editFormation.setText("Création & Design")
 
         //Promotion values
         val promotion = arrayOf("B1", "B2", "B3", "M1", "M2")
@@ -34,11 +51,5 @@ class EditInformationsProfileFragment : Fragment() {
         //Add list to edit input
         view.editLevel.setAdapter(adapterPromotion)
         view.editFormation.setAdapter(adapterFormation)
-
-        // Redirect to last view
-        view.back_icon.setOnClickListener {
-            findNavController().popBackStack()
-        }
-        return view
     }
 }

@@ -100,7 +100,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editTextLastName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="HAMEL-POIRAT"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -129,7 +129,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editTextFirstName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Maeva"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="18sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
@@ -157,7 +157,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editLevel"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="B2"
+                        android:text=""
                         android:textSize="18sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,7 +184,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:id="@+id/editFormation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Création et Design"
+                        android:text=""
                         android:textSize="18sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -285,7 +285,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/edit_fields_bloc">
                 <Button
-                    android:id="@+id/validateProfile"
+                    android:id="@+id/validateProfileButton"
                     style="@style/Widget.AppCompat.Button"
                     android:layout_width="158dp"
                     android:layout_height="36dp"

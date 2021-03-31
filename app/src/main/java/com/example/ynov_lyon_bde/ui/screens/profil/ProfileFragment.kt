@@ -18,6 +18,7 @@ import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import com.example.ynov_lyon_bde.ui.screens.event.CardDescriptionDirections
 import com.example.ynov_lyon_bde.domain.services.RedirectService
+import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
 

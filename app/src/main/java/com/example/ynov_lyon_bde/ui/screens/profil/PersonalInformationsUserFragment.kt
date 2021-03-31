@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ynov_lyon_bde.R
+import kotlinx.android.synthetic.main.fragment_account.*
+import kotlinx.android.synthetic.main.fragment_personal_informations_user.*
 import kotlinx.android.synthetic.main.fragment_personal_informations_user.view.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.*
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.back_icon
@@ -22,11 +25,20 @@ class PersonalInformationsUserFragment : Fragment() {
         view.back_icon.setOnClickListener {
             findNavController().popBackStack()
         }
+
         //Redirect to edit informations profile fragment
-        view.editProfile.setOnClickListener {
+        view.editProfileButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.actionPersonalInformationsUserToEditInformationsProfileFragment)
         }
         return view
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Get current user value and assign his values
+        editTextLastNameFirstName.setText("HAMEL-POIRAT Maeva")
+        editTextPromotion.setText("B2 - Création & Design")
+    }
+
 }
