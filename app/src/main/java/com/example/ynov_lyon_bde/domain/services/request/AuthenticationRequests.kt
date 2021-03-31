@@ -100,8 +100,7 @@ class AuthenticationRequests() : KoinComponent {
             jsonResultRequest.getJSONObject("data").getString("lastName"),
             jsonResultRequest.getJSONObject("data").getString("mail"),
             jsonResultRequest.getJSONObject("data").getString("promotion"),
-            jsonResultRequest.getJSONObject("data").getString("formation"),
-            jsonResultRequest.getJSONObject("data").getString("activationKey"))
+            jsonResultRequest.getJSONObject("data").getString("formation"))
         sharedPreferencesService.saveInUser(user, context)
     }
 

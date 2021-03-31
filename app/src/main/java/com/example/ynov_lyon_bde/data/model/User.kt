@@ -9,6 +9,5 @@ data class User (
     val lastName: String,
     val mail: String,
     val promotion: String,
-    val formation: String,
-    val activationKey:String
+    val formation: String
     )

@@ -9,6 +9,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.viewmodel.scanner.QRScannerViewModel
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_card_description.view.*
 
 class CardDescription : Fragment() {
@@ -22,6 +24,9 @@ class CardDescription : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_card_description, container, false)
         val event = args.Event
+
+        val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
+        bottomNavigationBar?.visibility = View.VISIBLE
 
         view.back_home_fragment.setOnClickListener { findNavController().popBackStack() }
 

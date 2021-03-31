@@ -11,9 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.domain.viewmodel.scanner.QRScannerViewModel
+import com.example.ynov_lyon_bde.domain.viewmodel.scanner.TicketViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_qr_scanner.*
 import kotlinx.android.synthetic.main.fragment_qr_scanner.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class QRScannerFragment : Fragment() {
 
@@ -30,15 +33,21 @@ class QRScannerFragment : Fragment() {
         activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100) }
 
         val viewModel = QRScannerViewModel()
-        viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
+        bottomNavigationBar?.visibility = View.GONE
 
-        view.back_button_carddescription.setOnClickListener{
-            findNavController().popBackStack()
-            viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
-        }
+        view.back_button_carddescription.setOnClickListener{findNavController().popBackStack() }
 
         viewModel.printTitleEvent(event, view)
         view.scanner.decodeSingle {
+
+            GlobalScope.launch {
+                val ticketViewModel = TicketViewModel()
+
+                if (it.result.text.isNotEmpty()){
+                    val ticketIsValid = context?.let { it1 -> ticketViewModel.validationTicket(it.result.text,it1) }
+                }
+            }
+
             viewModel.printNameOfClient(view,it.result.text)
         }
 
