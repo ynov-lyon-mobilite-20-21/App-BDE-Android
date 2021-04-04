@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             viewModel.chooseCurrentFragment(bottomNavigationItem, base_nav_host )
             true
         }
+
     }
 
     private fun onBoardingFinished(): Boolean {

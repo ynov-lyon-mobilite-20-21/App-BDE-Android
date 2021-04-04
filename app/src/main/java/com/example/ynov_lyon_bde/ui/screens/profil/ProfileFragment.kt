@@ -37,6 +37,7 @@ class ProfileFragment : Fragment() {
         val redirectService = RedirectConnectService()
         context?.let { activity?.let { it1 -> redirectService.redirect(it, it1, RedirectConnectService.TypeAlertDialog.PROFIL) } }
 
+
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
         view.settings.setOnClickListener {

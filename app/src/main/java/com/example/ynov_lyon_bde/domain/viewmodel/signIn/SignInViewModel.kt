@@ -1,6 +1,7 @@
 package com.example.ynov_lyon_bde.domain.viewmodel.signIn
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
@@ -34,22 +35,23 @@ class SignInViewModel : ViewModel() {
         var messageForUser : String? = null
         when(message){
             "" -> messageForUser = "Erreur"
-            "NO_USER" -> messageForUser = "Email ou mot de passe incorrect"
-            "USER_INACTIVE" -> messageForUser = "Veuillez valider votre adresse email"
-            "INVALID_TOKEN" -> messageForUser = "Compte non valide"
-            "USER_DOESNT_EXIST" -> messageForUser = "Email ou mot de passe incorrect"
-            "BAD_CREDENTIALS" -> messageForUser = "Formulaire mal renseigné"
+            "USER_INACTIVE" -> messageForUser = "Compte inactif"
+            "UNKNOWN_ERROR" -> messageForUser = "Erreur inconnue"
+            "UNKNOWN_USER" -> messageForUser = "Email incorrect"
+            "BAD_CREDENTIALS" -> messageForUser = "Email ou mot de passe incorrect"
         }
+        Log.e("message user", messageForUser)
         return messageForUser ?: message
     }
 
-    fun verifyErrorTextInputLayout(editTextContent: String?, til: TextInputLayout,
-                                   errMessage: String, focus: Boolean): Boolean
+    fun emptyErrorTextInputLayout(editTextContent: String?, til: TextInputLayout,
+                                  errMessage: String, focus: Boolean): Boolean
     {
         return if(editTextContent.isNullOrEmpty()){
             if(focus){
                 til.requestFocus()
             }
+            til.isErrorEnabled
             til.error = errMessage
             true
         }else{
@@ -57,9 +59,22 @@ class SignInViewModel : ViewModel() {
         }
     }
 
-    fun removeErrAfterTextChanged(editText: EditText, textInputLayout:TextInputLayout){
+    fun setErrorTextInputLayout(til: TextInputLayout,
+                                errMessage: String, focus: Boolean){
+        if(focus){
+            til.requestFocus()
+        }
+
+        til.boxStrokeColor = Color.parseColor("#b00020")
+        til.error = errMessage
+
+
+    }
+
+    fun removeErrAfterTextChanged(editText: EditText, til:TextInputLayout){
         editText.doAfterTextChanged {
-            textInputLayout.error = null
+            til.error = null
+            til.boxStrokeColor = Color.parseColor("#23B2A4")
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.ynov_lyon_bde.domain.services.request
 
 import android.content.Context
+import android.util.Log
 import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
 import com.example.ynov_lyon_bde.data.model.DTO.UserDTO
 import com.example.ynov_lyon_bde.data.model.User
@@ -28,17 +29,18 @@ class AuthenticationRequests() : KoinComponent {
     //LOGIN REQUEST
     suspend fun callLoginRequest(loginDto: LoginDTO, context: Context): Boolean {
         //access to view model and service
-        val token: String?
         val response = bdeApiService.apiCaller(BdeApiService.NameRequest.LOGIN, loginDto,null)
         val success = errorManager.handleException(
             response,
             ErrorManager.ErrorType.ERROR
         )
         val connectUserJson = response.split(";")[1]
-        token = JSONObject(connectUserJson).getJSONObject("data").getString("token")
+        val token = JSONObject(connectUserJson).getJSONObject("data").getString("token")
+        val refreshToken = JSONObject(connectUserJson).getJSONObject("data").getString("refreshToken")
 
         //Save token in shared preference
         sharedPreferencesService.saveIn("TOKEN", token!!, context)
+        sharedPreferencesService.saveIn("refreshToken", refreshToken!!, context)
         return success
     }
 
@@ -73,7 +75,7 @@ class AuthenticationRequests() : KoinComponent {
                 throw java.lang.Exception("Le Json récupéré est null")
             }
             if (code !in 200..299) {
-                error = jsonObject.getString("code")
+                error = jsonObject.getJSONObject("error").getString("code")
                 if(error == "INVALID_TOKEN"){
                     return false
                 }
@@ -105,15 +107,25 @@ class AuthenticationRequests() : KoinComponent {
 
     //REFRESH REQUEST
     private suspend fun callRefreshRequest(context: Context): Boolean {
-        val tokenToRefresh = sharedPreferencesService.retrived("TOKEN", context)
-        if (tokenToRefresh.isNullOrEmpty()) {
-            throw Exception("Aucun token")
+        val refreshToken = sharedPreferencesService.retrived("refreshToken", context)
+
+        if (refreshToken.isNullOrEmpty()) {
+            throw Exception("Aucun refresh token")
         }
-        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.REFRESH, tokenToRefresh, null)
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.REFRESH, refreshToken, null)
+        Log.d("responseRefresh", response)
         if (!response.isNullOrEmpty()) {
             val code = response.split(";")[0].toInt()
             if (code !in 200..299) {
                 return false
+            }else{
+                val json = response.split(";")[1]
+                val token = JSONObject(json).getJSONObject("data").getString("token")
+                val refreshToken = JSONObject(json).getJSONObject("data").getString("refreshToken")
+
+                //Save token in shared preference
+                sharedPreferencesService.saveIn("TOKEN", token!!, context)
+                sharedPreferencesService.saveIn("refreshToken", refreshToken!!, context)
             }
         } else {
             throw java.lang.Exception("la reponse reçue est null")

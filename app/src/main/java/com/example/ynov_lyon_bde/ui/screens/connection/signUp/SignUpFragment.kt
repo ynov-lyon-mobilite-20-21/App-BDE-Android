@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.domain.viewmodel.signUp.SignUpViewModel
-import kotlinx.android.synthetic.main.fragment_connectuser.*
-import kotlinx.android.synthetic.main.fragment_connectuser.view.*
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_createuser.*
 import kotlinx.android.synthetic.main.fragment_createuser.view.*
 import kotlinx.coroutines.Dispatchers
@@ -61,20 +61,20 @@ class SignUpFragment: Fragment() {
             val formation = spinnerFormation.text.toString()
 
             //display error
-            if(!signUpViewModel.verifyErrorTextInputLayout(contentEditTextMail,
+            if(!signUpViewModel.emptyErrorTextInputLayout(contentEditTextMail,
                     tiEditTextMailCreate, "email vide", true)){
-                signUpViewModel.verifyErrorTextInputLayout(mail, tiEditTextMailCreate,
+                signUpViewModel.emptyErrorTextInputLayout(mail, tiEditTextMailCreate,
                     "email non conforme", true)
             }
-            signUpViewModel.verifyErrorTextInputLayout(firstName, tiEditTextFirstName,
+            signUpViewModel.emptyErrorTextInputLayout(firstName, tiEditTextFirstName,
                 "prénom vide", false)
-            signUpViewModel.verifyErrorTextInputLayout(lastName, tiEditTextLastName,
+            signUpViewModel.emptyErrorTextInputLayout(lastName, tiEditTextLastName,
                 "nom vide", false)
-            signUpViewModel.verifyErrorTextInputLayout(password, tiEditTextPasswordCreate,
+            signUpViewModel.emptyErrorTextInputLayout(password, tiEditTextPasswordCreate,
                 "mot de passe vide", false)
-            signUpViewModel.verifyErrorTextInputLayout(promotion, tiSpinnerPromotion,
+            signUpViewModel.emptyErrorTextInputLayout(promotion, tiSpinnerPromotion,
                 "promotion vide", false)
-            signUpViewModel.verifyErrorTextInputLayout(formation, tiSpinnerFormation,
+            signUpViewModel.emptyErrorTextInputLayout(formation, tiSpinnerFormation,
                 "formation vide", false)
 
             //call requests
@@ -87,9 +87,44 @@ class SignUpFragment: Fragment() {
                     }
                     deferred.await()
                     if (message.isNullOrEmpty()) {
-                        activity?.finish()
+                        val navController = activity?.log_navigation_graph?.findNavController()
+                        if (navController != null) {
+                            navController.previousBackStackEntry?.savedStateHandle?.set("checkMail", "")
+                        }
+                        navController?.popBackStack()
+                        //activity?.base_nav_host?.findNavController()?.popBackStack()
+                        //activity?.finish()
                     } else {
-                        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                        if(message!!.contains("non renseigné", ignoreCase = true)){
+                            when(message){
+                                "Email non renseigné" -> signUpViewModel.setErrorTextInputLayout(tiEditTextMailCreate,
+                                    "Email non renseigné", true)
+                                "Mot de passe non renseigné" -> signUpViewModel.setErrorTextInputLayout(tiEditTextPasswordCreate,
+                                    "Mot de passe non renseigné", true)
+                                "Prénom non renseigné" -> signUpViewModel.setErrorTextInputLayout(tiEditTextFirstName,
+                                    "Prénom non renseigné", true)
+                                "Nom non renseigné" -> signUpViewModel.setErrorTextInputLayout(tiEditTextFirstName,
+                                    "Prénom non renseigné", true)
+                                "Promotion non renseignée" ->  signUpViewModel.setErrorTextInputLayout(tiSpinnerPromotion,
+                                    "Promotion non renseignée", true)
+                                "Formation non renseignée" -> signUpViewModel.setErrorTextInputLayout(tiSpinnerFormation,
+                                    "Formation non renseignée", true)
+                            }
+                        } else{
+                            Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                            signUpViewModel.setErrorTextInputLayout(tiEditTextMailCreate,
+                                "", true)
+                            signUpViewModel.setErrorTextInputLayout(tiEditTextPasswordCreate,
+                                "", false)
+                            signUpViewModel.setErrorTextInputLayout(tiEditTextFirstName,
+                                "", false)
+                            signUpViewModel.setErrorTextInputLayout(tiEditTextLastName,
+                                "", false)
+                            signUpViewModel.setErrorTextInputLayout(tiSpinnerPromotion,
+                                "", false)
+                            signUpViewModel.setErrorTextInputLayout(tiSpinnerFormation,
+                                "", false)
+                        }
                     }
                 }
             }
