@@ -5,8 +5,8 @@
             <corners android:radius="30dp"/>
             <gradient
                 android:angle="360"
-                android:startColor="#E64562"
-                android:endColor="#20A99A"
+                android:startColor="@color/qrcode_border_red"
+                android:endColor="@color/qrcode_border_blue"
                 android:type="linear" />
         </shape>
     </item>
