@@ -1,7 +1,9 @@
 package com.example.ynov_lyon_bde.ui.screens.scanner
 
 import android.Manifest
+import android.app.Activity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,27 +32,25 @@ class QRScannerFragment : Fragment() {
         val event = args.Event
         val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100) }
+        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100)}
 
         val viewModel = QRScannerViewModel()
         bottomNavigationBar?.visibility = View.GONE
 
-        view.back_button_carddescription.setOnClickListener{findNavController().popBackStack() }
+        view.back_button_carddescription.setOnClickListener{findNavController().popBackStack()}
 
         viewModel.printTitleEvent(event, view)
+        view.title_event_qrcode.text = event.name
+
         view.scanner.decodeSingle {
-
             GlobalScope.launch {
-                val ticketViewModel = TicketViewModel()
-
                 if (it.result.text.isNotEmpty()){
-                    val ticketIsValid = context?.let { it1 -> ticketViewModel.validationTicket(it.result.text,it1) }
+                    val ticketViewModel = TicketViewModel()
+                    var identityClient = context?.let { it1 -> ticketViewModel.validationTicket(it.result.text,it1)}
+                    activity?.runOnUiThread { viewModel.printNameOfClient(view,identityClient)}
                 }
             }
-
-            viewModel.printNameOfClient(view,it.result.text)
         }
-
         return view
     }
 

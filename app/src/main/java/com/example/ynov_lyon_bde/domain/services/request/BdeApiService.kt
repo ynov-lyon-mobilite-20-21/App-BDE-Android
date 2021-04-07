@@ -38,8 +38,8 @@ class BdeApiService {
                 response = retrofit.getUser("Bearer $token")
             }
             NameRequest.TICKET ->{
-                response = retrofit.checkTicket("Bearer $token")
-                Log.d("reponse",token.toString())
+                response = retrofit.checkTicket("Bearer $token",body.toString())
+                Log.d("uid",body.toString())
             }
         }
         return sendResponseBody(response)
@@ -67,7 +67,6 @@ class BdeApiService {
         jsonObject.put(strBody, value)
         return jsonObject.toString().toRequestBody(MEDIA_TYPE_JSON.toMediaTypeOrNull())
     }
-
 }
 
 

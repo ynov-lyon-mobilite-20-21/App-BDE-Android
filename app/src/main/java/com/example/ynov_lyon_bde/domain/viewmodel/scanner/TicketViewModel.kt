@@ -9,21 +9,19 @@ import com.example.ynov_lyon_bde.domain.services.request.CheckTicketRequest
 
 class TicketViewModel : ViewModel() {
         var token:String? = null
-        val sharedPreferencesService = SharedPreferencesService()
+        private val sharedPreferencesService = SharedPreferencesService()
 
-    suspend fun validationTicket(uid:String,context:Context):Boolean{
+    suspend fun validationTicket(uid:String,context:Context):String?{
         token = sharedPreferencesService.retrived("TOKEN",context)
 
         var message:String? = null
         val checkTicketRequest = CheckTicketRequest()
-
-        try {
+        message = try {
             checkTicketRequest.callTicketRequest(uid,token)
         }
         catch (err: Exception){
-            Log.e("message", err.message)
-            return false
+            "Billet non reconnu"
         }
-        return true
+        return message
     }
 }

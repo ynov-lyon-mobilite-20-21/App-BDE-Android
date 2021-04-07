@@ -145,21 +145,19 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="15dp"/>
 
-            <Button
+            <TextView
                 android:id="@+id/qrcode_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/button_take_place"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="44dp"
-                android:layout_marginBottom="20dp"
-                android:text="qrcode"
+                android:layout_marginStart="42dp"
+                android:layout_marginEnd="38dp"
+                android:layout_marginTop="0dp"
+                android:text="Scanner un QRCode"
                 android:textAlignment="center"
-                android:textColor="@color/black" />
-
+                android:textColor="#0A84FF" />
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

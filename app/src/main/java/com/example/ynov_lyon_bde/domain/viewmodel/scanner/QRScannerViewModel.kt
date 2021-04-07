@@ -12,8 +12,7 @@ class QRScannerViewModel {
         view.title_event_qrcode.text = event.name
     }
 
-    fun printNameOfClient(view: View,it:String){
+    fun printNameOfClient(view: View,it:String?){
         view.name_person.text = it
-        view.ticket_person.text = it
     }
 }

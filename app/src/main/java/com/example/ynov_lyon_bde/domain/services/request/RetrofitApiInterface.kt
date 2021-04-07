@@ -19,10 +19,6 @@ interface RetrofitApiInterface {
     @POST("api/auth/refreshToken")
     suspend fun refreshToken(@Body requestBody: RequestBody): Response<ResponseBody>
 
-    @GET("api/ticket/604933f3bfb99ec48802b223/check")
-    suspend fun checkTicket(@Header("Authorization") token: String?): Response<ResponseBody>
-
-
-   /* @GET("/api/ticket/{id}/check")
-    suspend fun checkTicket(@Header("Authorization") token: String?, @Path("id") id: String?)*/
+    @GET("/api/ticket/{id}/check")
+    suspend fun checkTicket(@Header("Authorization") token: String?, @Path("id") id: String?):Response<ResponseBody>
 }
