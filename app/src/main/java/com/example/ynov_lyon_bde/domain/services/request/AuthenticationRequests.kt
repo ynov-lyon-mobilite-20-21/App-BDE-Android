@@ -70,6 +70,16 @@ class AuthenticationRequests() : KoinComponent {
         )
     }
 
+    //DELETE USER REQUEST
+    suspend fun callDeleteUserRequest(context: Context): Boolean {
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.LOGOUT, null, token)
+        return errorManager.handleException(
+            response,
+            ErrorManager.ErrorType.ERROR
+        )
+    }
+
     suspend fun meAndRefreshToken(context: Context){
         if(!callInformationUserRequest(context)){
             if(callRefreshRequest(context)){

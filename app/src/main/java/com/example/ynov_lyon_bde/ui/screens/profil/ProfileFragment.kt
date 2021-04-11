@@ -46,9 +46,6 @@ class ProfileFragment : Fragment() {
 
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
-//        val sharedPreferencesService = SharedPreferencesService()
-//        val currentUser = context?.let { it1 -> sharedPreferencesService.retrivedUser(it1) }
-//        Log.i("MessageTest", "$currentUser")
 
         view.settings.setOnClickListener {
                 // Redirect to settings user profile fragment

@@ -50,6 +50,22 @@ class SettingsUserProfileFragment : Fragment() {
 //                }
             }
         }
+        // Delete account
+        view.deleteAccountButton.setOnClickListener {
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferred = async(Dispatchers.IO) {
+                    //call requests
+                    val message: Boolean?
+                    message = context?.let { it1 -> authenticationRequests.callDeleteUserRequest(it1) }
+                }
+//                deferred.await()
+//                if (message.isNullOrEmpty()) {
+//                    activity?.finish()
+//                } else {
+//                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//                }
+            }
+        }
 
         return view
     }
