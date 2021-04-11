@@ -45,18 +45,29 @@ class AuthenticationRequests() : KoinComponent {
         return success
     }
 
-    // EDIT USER REQUEST
-    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
-        // Get token current user
-        val sharedPreferencesService = SharedPreferencesService()
+//    // EDIT USER REQUEST
+//    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
+//        // Get token current user
+//        val sharedPreferencesService = SharedPreferencesService()
+//        val token = sharedPreferencesService.retrived("TOKEN", context)
+//        // Call API
+//        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
+//        val success = errorManager.handleException(
+//            response,
+//            ErrorManager.ErrorType.ERROR
+//        )
+//        return success
+//    }
+
+    //LOGOUT REQUEST
+    suspend fun callLogoutRequest(context: Context): Boolean {
+        val refreshToken = sharedPreferencesService.retrived("refreshToken", context)
         val token = sharedPreferencesService.retrived("TOKEN", context)
-        // Call API
-        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
-        val success = errorManager.handleException(
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.LOGOUT, refreshToken, token)
+        return errorManager.handleException(
             response,
             ErrorManager.ErrorType.ERROR
         )
-        return success
     }
 
     suspend fun meAndRefreshToken(context: Context){
@@ -133,7 +144,7 @@ class AuthenticationRequests() : KoinComponent {
             val code = response.split(";")[0].toInt()
             if (code !in 200..299) {
                 return false
-            }else{
+            } else {
                 val json = response.split(";")[1]
                 val token = JSONObject(json).getJSONObject("data").getString("token")
                 val refreshToken = JSONObject(json).getJSONObject("data").getString("refreshToken")

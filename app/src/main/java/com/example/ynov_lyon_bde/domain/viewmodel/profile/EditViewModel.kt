@@ -21,7 +21,7 @@ class EditViewModel : ViewModel() {
         )
         val authenticationRequests = AuthenticationRequests()
         try {
-            authenticationRequests.callEditUserRequest(editUserDto, context)
+//            authenticationRequests.callEditUserRequest(editUserDto, context)
         }catch(err : Exception){
             Log.e("message", err.message)
 //            message = gestionMessageErr(err.message)

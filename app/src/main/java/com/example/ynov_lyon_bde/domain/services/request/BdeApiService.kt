@@ -14,7 +14,7 @@ import retrofit2.Response
 class BdeApiService {
 
     enum class NameRequest {
-        REFRESH, ME, USER, LOGIN, EDIT_USER, TICKET
+        REFRESH, ME, USER, LOGIN, EDIT_USER, TICKET, LOGOUT
     }
 
     suspend fun <T> apiCaller(nameRequest: NameRequest, body: T?, token:T?): String {
@@ -36,6 +36,10 @@ class BdeApiService {
             }
             NameRequest.ME ->{
                 response = retrofit.getUser("Bearer $token")
+            }
+            NameRequest.LOGOUT -> {
+                val requestBody = postRequestWithOneProperty("refreshToken", body.toString())
+                response = retrofit.logout("Bearer $token", requestBody)
             }
             NameRequest.TICKET ->{
                 response = retrofit.checkTicket("Bearer $token",body.toString())

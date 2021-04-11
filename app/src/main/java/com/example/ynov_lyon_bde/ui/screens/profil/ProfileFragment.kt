@@ -17,9 +17,7 @@ import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.data.model.EventType
 import com.example.ynov_lyon_bde.data.model.ImageType
 import com.example.ynov_lyon_bde.domain.services.RedirectConnectService
-import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import com.example.ynov_lyon_bde.ui.screens.event.CardDescriptionDirections
-import com.example.ynov_lyon_bde.domain.services.RedirectService
 import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import kotlinx.android.synthetic.main.fragment_account.*
@@ -48,12 +46,11 @@ class ProfileFragment : Fragment() {
 
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
-        val sharedPreferencesService = SharedPreferencesService()
-        val currentUser = context?.let { it1 -> sharedPreferencesService.retrivedUser(it1) }
-        Log.i("MessageTest", "$currentUser")
+//        val sharedPreferencesService = SharedPreferencesService()
+//        val currentUser = context?.let { it1 -> sharedPreferencesService.retrivedUser(it1) }
+//        Log.i("MessageTest", "$currentUser")
 
         view.settings.setOnClickListener {
-//            if (currentUser != null) {
                 // Redirect to settings user profile fragment
                 Navigation.findNavController(view)
                     .navigate(R.id.actionAccountFragmentToSettingsUserProfile);

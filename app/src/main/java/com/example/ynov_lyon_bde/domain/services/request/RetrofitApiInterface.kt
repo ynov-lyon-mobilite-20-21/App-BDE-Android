@@ -24,4 +24,10 @@ interface RetrofitApiInterface {
 
     @PUT("/api/users")
     suspend fun editUser(@Header("Authorization") token: String?, @Body requestBody: RequestBody): Response<ResponseBody>
+
+    @POST("api/auth/logout")
+    suspend fun logout(@Header("Authorization") token: String?, @Body requestBody: RequestBody): Response<ResponseBody>
+
+    @DELETE("api/users")
+    suspend fun deleteUser(@Header("Authorization") token: String?): Response<ResponseBody>
 }
