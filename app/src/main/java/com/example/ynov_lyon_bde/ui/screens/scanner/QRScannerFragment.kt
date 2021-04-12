@@ -33,11 +33,8 @@ class QRScannerFragment : Fragment() {
         activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100)}
 
         val viewModel = QRScannerViewModel()
-
         bottomNavigationBar?.visibility = View.GONE
-
         view.back_button_carddescription.setOnClickListener{findNavController().popBackStack()}
-        view.title_event_qrcode.text = event.name
 
         view.scanner.decodeContinuous {
             GlobalScope.launch {

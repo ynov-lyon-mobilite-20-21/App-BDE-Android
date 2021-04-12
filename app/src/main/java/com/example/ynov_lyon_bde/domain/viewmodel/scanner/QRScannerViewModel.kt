@@ -4,6 +4,7 @@ package com.example.ynov_lyon_bde.domain.viewmodel.scanner
 import android.app.Activity
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
@@ -36,11 +37,15 @@ class QRScannerViewModel: ViewModel() {
 
     suspend fun validationTicket(uid: String, context: Context) : String?{
         token = sharedPreferencesService.retrived("TOKEN", context)
-
         var message:String? = null
         val checkTicketRequest = CheckTicketRequest()
+
+        if(!uid.contains("bde_")){
+            return "Billet non reconnu"
+        }
+
         message = try {
-            checkTicketRequest.callTicketRequest(uid, token)
+            checkTicketRequest.callTicketRequest(uid.replace("bde_",""), token)
         }
         catch (err: Exception){
             "Billet non reconnu"
