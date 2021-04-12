@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import com.example.ynov_lyon_bde.domain.services.request.AuthenticationRequests
 import kotlinx.android.synthetic.main.fragment_settings_user_profile.view.*
 import kotlinx.coroutines.Dispatchers
@@ -57,6 +58,7 @@ class SettingsUserProfileFragment : Fragment() {
                     //call requests
                     val message: Boolean?
                     message = context?.let { it1 -> authenticationRequests.callDeleteUserRequest(it1) }
+                    Log.d("MessageTest", message.toString())
                 }
 //                deferred.await()
 //                if (message.isNullOrEmpty()) {

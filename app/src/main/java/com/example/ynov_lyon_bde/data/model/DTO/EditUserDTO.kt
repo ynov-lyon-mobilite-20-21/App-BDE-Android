@@ -1,11 +1,10 @@
 package com.example.ynov_lyon_bde.data.model.DTO
 
-class EditUserDTO (
+data class EditUserDTO (
     val firstName: String,
     val lastName: String,
-    val level: String,
+    val mail: String,
+    val password: String,
     val promotion: String,
-    val lastPassword: String,
-    val newPassword: String,
-    val confirmNewPassword: String
+    val formation: String,
 )

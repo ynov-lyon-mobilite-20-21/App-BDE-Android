@@ -14,49 +14,46 @@ import retrofit2.Response
 class BdeApiService {
 
     enum class NameRequest {
-        REFRESH, ME, USER, LOGIN, EDIT_USER, TICKET, LOGOUT, DELETE_USER
+        REFRESH, ME, USER, LOGIN, EDIT_USER, TICKET
     }
 
-    suspend fun <T> apiCaller(nameRequest: NameRequest, body: T?, token:T?): String {
+    enum class NameRequestNoJSON {
+        DELETE_USER, LOGOUT
+    }
+
+    suspend fun <T> apiCaller(nameRequest: NameRequest, body: T?, token: T?): String {
         val retrofit = RetrofitServiceBuilder.buildService(RetrofitApiInterface::class.java)
         var response: Response<ResponseBody>? = null
-        when(nameRequest){
-            NameRequest.USER ->{
+        when (nameRequest) {
+            NameRequest.USER -> {
                 val requestBody = postRequestWithDto(body)
                 response = retrofit.createUser(requestBody)
             }
-            NameRequest.LOGIN ->{
+            NameRequest.LOGIN -> {
                 val requestBody = postRequestWithDto(body)
                 response = retrofit.loginUser(requestBody)
             }
-            NameRequest.REFRESH ->{
-                val requestBody = postRequestWithOneProperty("refreshToken",body.toString())
+            NameRequest.REFRESH -> {
+                val requestBody = postRequestWithOneProperty("refreshToken", body.toString())
                 response = retrofit.refreshToken(requestBody)
-                Log.d("reponse",token.toString())
+                Log.d("reponse", token.toString())
             }
-            NameRequest.ME ->{
+            NameRequest.ME -> {
                 response = retrofit.getUser("Bearer $token")
             }
-            NameRequest.LOGOUT -> {
-                val requestBody = postRequestWithOneProperty("refreshToken", body.toString())
-                response = retrofit.logout("Bearer $token", requestBody)
+            NameRequest.TICKET -> {
+                response = retrofit.checkTicket("Bearer $token", body.toString())
+                Log.d("uid", body.toString())
             }
-            NameRequest.TICKET ->{
-                response = retrofit.checkTicket("Bearer $token",body.toString())
-                Log.d("uid",body.toString())
-            }
-            NameRequest.EDIT_USER ->{
+            NameRequest.EDIT_USER -> {
                 val requestBody = postRequestWithDto(body)
                 response = retrofit.editUser("Bearer $token", requestBody)
-            }
-            NameRequest.DELETE_USER ->{
-                response = retrofit.deleteUser("Bearer $token")
             }
         }
         return sendResponseBody(response)
     }
 
-    private fun sendResponseBody(response : Response<ResponseBody>): String {
+    private fun sendResponseBody(response: Response<ResponseBody>): String {
         return if (response.isSuccessful) {
             "${response.code()};${convertResponseBodyToString(response.body())}"
         } else {
@@ -64,7 +61,7 @@ class BdeApiService {
         }
     }
 
-    private fun convertResponseBodyToString(response : ResponseBody?): String{
+    private fun convertResponseBodyToString(response: ResponseBody?): String {
         return JsonServiceBuilder().convertRawToPrettyJson(response)
     }
 
@@ -73,10 +70,27 @@ class BdeApiService {
         return jsonTut.toRequestBody(MEDIA_TYPE_JSON.toMediaTypeOrNull())
     }
 
-    private fun postRequestWithOneProperty(strBody : String, value : String) : RequestBody {
+    private fun postRequestWithOneProperty(strBody: String, value: String): RequestBody {
         val jsonObject = JSONObject()
         jsonObject.put(strBody, value)
         return jsonObject.toString().toRequestBody(MEDIA_TYPE_JSON.toMediaTypeOrNull())
+    }
+
+    suspend fun callRequestWithoutResponseBody(
+        nameRequestNoJSON: NameRequestNoJSON,
+        body: String,
+        token: String
+    ): Boolean {
+        val retrofit = RetrofitServiceBuilder.buildService(RetrofitApiInterface::class.java)
+        when (nameRequestNoJSON) {
+            NameRequestNoJSON.DELETE_USER -> {
+                return retrofit.deleteUser("Bearer $token").isSuccessful
+            }
+            NameRequestNoJSON.LOGOUT -> {
+                val requestBody = postRequestWithOneProperty("refreshToken", body)
+                return retrofit.logout("Bearer $token", requestBody).isSuccessful
+            }
+        }
     }
 }
 

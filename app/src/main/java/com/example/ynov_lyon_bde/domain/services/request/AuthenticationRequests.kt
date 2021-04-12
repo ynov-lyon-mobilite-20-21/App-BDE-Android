@@ -1,6 +1,7 @@
 package com.example.ynov_lyon_bde.domain.services.request
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import com.example.ynov_lyon_bde.data.model.DTO.EditUserDTO
 import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
@@ -46,38 +47,73 @@ class AuthenticationRequests() : KoinComponent {
     }
 
 //    // EDIT USER REQUEST
-//    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
-//        // Get token current user
-//        val sharedPreferencesService = SharedPreferencesService()
-//        val token = sharedPreferencesService.retrived("TOKEN", context)
-//        // Call API
-//        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
-//        val success = errorManager.handleException(
-//            response,
-//            ErrorManager.ErrorType.ERROR
-//        )
-//        return success
-//    }
+    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
+        // Get token current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        // Call API
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
+        Log.d("Response Call API", response)
+
+        val resultMe = response.split(";")[1]
+        val jsonResultRequest = JSONObject(resultMe)
+        val user = User(jsonResultRequest.getJSONObject("data").getString("_id"),
+        jsonResultRequest.getJSONObject("data").getBoolean("isActive"),
+        jsonResultRequest.getJSONObject("data").getBoolean("isAdmin"),
+        jsonResultRequest.getJSONObject("data").getBoolean("isAdherent"),
+        jsonResultRequest.getJSONObject("data").getString("firstName"),
+        jsonResultRequest.getJSONObject("data").getString("lastName"),
+        jsonResultRequest.getJSONObject("data").getString("mail"),
+        jsonResultRequest.getJSONObject("data").getString("promotion"),
+        jsonResultRequest.getJSONObject("data").getString("formation"))
+        sharedPreferencesService.saveInUser(user, context)
+
+        Log.d("Test", sharedPreferencesService.retrivedUser(context).toString())
+
+        val success = errorManager.handleException(
+            response,
+            ErrorManager.ErrorType.ERROR
+        )
+        return success
+    }
 
     //LOGOUT REQUEST
     suspend fun callLogoutRequest(context: Context): Boolean {
         val refreshToken = sharedPreferencesService.retrived("refreshToken", context)
         val token = sharedPreferencesService.retrived("TOKEN", context)
-        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.LOGOUT, refreshToken, token)
-        return errorManager.handleException(
-            response,
-            ErrorManager.ErrorType.ERROR
-        )
+        if (token != null && refreshToken != null){
+            val response = bdeApiService.callRequestWithoutResponseBody(BdeApiService.NameRequestNoJSON.LOGOUT,  refreshToken, token)
+            return if(response){
+                val preferences: SharedPreferences = context.getSharedPreferences(
+                    "MY_APP",
+                    Context.MODE_PRIVATE
+                )
+                preferences.edit().clear().commit();
+                true
+            } else {
+                false
+            }
+        }
+        return false
     }
 
     //DELETE USER REQUEST
     suspend fun callDeleteUserRequest(context: Context): Boolean {
         val token = sharedPreferencesService.retrived("TOKEN", context)
-        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.LOGOUT, null, token)
-        return errorManager.handleException(
-            response,
-            ErrorManager.ErrorType.ERROR
-        )
+        if (token != null){
+            val response = bdeApiService.callRequestWithoutResponseBody(BdeApiService.NameRequestNoJSON.DELETE_USER, "", token)
+            return if(response){
+                val preferences: SharedPreferences = context.getSharedPreferences(
+                    "MY_APP",
+                    Context.MODE_PRIVATE
+                )
+                preferences.edit().clear().commit();
+                true
+            } else {
+                false
+            }
+        }
+        return false
     }
 
     suspend fun meAndRefreshToken(context: Context){
