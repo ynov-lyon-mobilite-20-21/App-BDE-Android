@@ -23,4 +23,16 @@
     <dimen name="size_titleEventScan">22sp</dimen>
     <dimen name="size_infoQR">18sp</dimen>
     <dimen name="size_infoPerson">17sp</dimen>
+
+    // Ticket
+    <dimen name="size_dateEvent_ticket">12sp</dimen>
+    <dimen name="size_titleEvent_ticket">16dp</dimen>
+
+    //Account Fragment
+    <dimen name="size_titleInformation_account">24sp</dimen>
+    <dimen name="size_titleName_account">16sp</dimen>
+    <dimen name="size_titleFiliere_account">12sp</dimen>
+    <dimen name="size_titleMail_account">12sp</dimen>
+    <dimen name="size_titleTicket_account">24sp</dimen>
+
 </resources>
