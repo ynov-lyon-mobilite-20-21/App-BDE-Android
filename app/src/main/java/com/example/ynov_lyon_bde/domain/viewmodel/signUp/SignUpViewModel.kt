@@ -2,10 +2,13 @@ package com.example.ynov_lyon_bde.domain.viewmodel.signUp
 
 import android.content.Context
 import android.util.Log
+import android.widget.EditText
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModel
 import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
 import com.example.ynov_lyon_bde.data.model.DTO.UserDTO
 import com.example.ynov_lyon_bde.domain.services.request.AuthenticationRequests
+import com.google.android.material.textfield.TextInputLayout
 import java.lang.Exception
 
 class SignUpViewModel : ViewModel() {
@@ -32,7 +35,7 @@ class SignUpViewModel : ViewModel() {
                 }
             }
         }catch(err : Exception){
-            Log.e("message", err.message)
+            Log.e("create request", err.toString())
             message = gestionMessageErr(err.message)
         }
         return message
@@ -56,6 +59,27 @@ class SignUpViewModel : ViewModel() {
             "USER_ALREADY_EXISTS" -> messageForUser = "Ce compte existe déjà"
         }
         return messageForUser
+    }
+
+    fun verifyErrorTextInputLayout(editTextContent: String?, til: TextInputLayout,
+                                   errMessage: String, focus: Boolean): Boolean
+    {
+        return if(editTextContent.isNullOrEmpty()){
+            if(focus){
+                til.requestFocus()
+            }
+            til.isErrorEnabled
+            til.error = errMessage
+            true
+        }else{
+            false
+        }
+    }
+
+    fun removeErrAfterTextChanged(editText: EditText, textInputLayout: TextInputLayout){
+        editText.doAfterTextChanged {
+            textInputLayout.error = null
+        }
     }
 
 }

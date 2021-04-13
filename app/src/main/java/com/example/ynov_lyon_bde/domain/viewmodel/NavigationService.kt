@@ -5,7 +5,7 @@ import android.view.View
 import androidx.navigation.findNavController
 import com.example.ynov_lyon_bde.R
 
-class NavigationViewModel() {
+class NavigationService() {
 
     fun chooseCurrentFragment(it: MenuItem, view: View) {
         when(it.itemId){

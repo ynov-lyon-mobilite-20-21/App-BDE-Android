@@ -1,5 +1,6 @@
 package com.example.ynov_lyon_bde.ui.screens.connection.signIn
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -17,14 +18,12 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-
 class SignInFragment : Fragment() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    @SuppressLint("ResourceType")
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View?
+    {
         val view = inflater.inflate(R.layout.fragment_connectuser, container, false)
         val signInViewModel = SignInViewModel()
 
@@ -32,19 +31,33 @@ class SignInFragment : Fragment() {
             findNavController().navigate(R.id.action_signInFragment_to_signUpFragment)
         }
 
+        //remove error when editText text changed
+        signInViewModel.removeErrAfterTextChanged(view.editTextMailConnect, view.tiEditTextMailConnect)
+        signInViewModel.removeErrAfterTextChanged(view.editTextPasswordConnect, view.tiEditTextPasswordConnect)
+
         view.buttonConnect.setOnClickListener {
             // get text input
             val contentEditTextMail = editTextMailConnect.text.toString();
-            val email = if(Patterns.EMAIL_ADDRESS.matcher(contentEditTextMail).matches()) {
+            val mail = if(Patterns.EMAIL_ADDRESS.matcher(contentEditTextMail).matches()) {
                 contentEditTextMail
             } else null
             val password = editTextPasswordConnect.text.toString()
             var message: String? = null
-            if (email != null) {
+
+            //display error
+            if(!signInViewModel.verifyErrorTextInputLayout(contentEditTextMail,
+                    tiEditTextMailConnect, "email vide", true)){
+                signInViewModel.verifyErrorTextInputLayout(mail, tiEditTextMailConnect,
+                    "email non conforme", true)
+            }
+            signInViewModel.verifyErrorTextInputLayout(password, tiEditTextPasswordConnect,
+                "mot de passe vide", false)
+
+            //call requests
+            if (mail != null && password.isNotEmpty()) {
                 GlobalScope.launch(Dispatchers.Main) {
                     val deferred = async(Dispatchers.IO) {
-                        //call requests
-                        message = context?.let { it1 -> signInViewModel.login(email,password, it1) }
+                        message = context?.let { it1 -> signInViewModel.login(mail, password, it1) }
                     }
                     deferred.await()
                     if (message.isNullOrEmpty()) {
@@ -53,11 +66,9 @@ class SignInFragment : Fragment() {
                         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                     }
                 }
-            }else {
-                Toast.makeText(context, "Formulaire mal renseigné", Toast.LENGTH_SHORT).show()
             }
         }
-
         return view
     }
+
 }
