@@ -13,9 +13,12 @@ interface RetrofitApiInterface {
     @POST("api/auth/login")
     suspend fun loginUser(@Body requestBody: RequestBody): Response<ResponseBody>
 
-    @GET("api/me")
+    @GET("api/users/me")
     suspend fun getUser(@Header("Authorization") token: String?): Response<ResponseBody>
 
     @POST("api/auth/refreshToken")
     suspend fun refreshToken(@Body requestBody: RequestBody): Response<ResponseBody>
+
+    @GET("/api/ticket/{id}/check")
+    suspend fun checkTicket(@Header("Authorization") token: String?, @Path("id") id: String?):Response<ResponseBody>
 }

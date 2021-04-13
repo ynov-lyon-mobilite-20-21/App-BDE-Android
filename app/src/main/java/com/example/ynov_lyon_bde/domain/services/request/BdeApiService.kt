@@ -1,5 +1,6 @@
 package com.example.ynov_lyon_bde.domain.services.request
 
+import android.util.Log
 import com.example.ynov_lyon_bde.domain.utils.Constants.Companion.MEDIA_TYPE_JSON
 import com.example.ynov_lyon_bde.domain.utils.JsonServiceBuilder
 import com.example.ynov_lyon_bde.domain.utils.RetrofitServiceBuilder
@@ -13,7 +14,7 @@ import retrofit2.Response
 class BdeApiService {
 
     enum class NameRequest {
-        REFRESH, ME, USER, LOGIN
+        REFRESH, ME, USER, LOGIN, TICKET
     }
 
     suspend fun <T> apiCaller(nameRequest: NameRequest, body: T?, token:T?): String {
@@ -31,9 +32,14 @@ class BdeApiService {
             NameRequest.REFRESH ->{
                 val requestBody = postRequestWithOneProperty("refreshToken",body.toString())
                 response = retrofit.refreshToken(requestBody)
+                Log.d("reponse",token.toString())
             }
             NameRequest.ME ->{
                 response = retrofit.getUser("Bearer $token")
+            }
+            NameRequest.TICKET ->{
+                response = retrofit.checkTicket("Bearer $token",body.toString())
+                Log.d("uid",body.toString())
             }
         }
         return sendResponseBody(response)
@@ -61,7 +67,6 @@ class BdeApiService {
         jsonObject.put(strBody, value)
         return jsonObject.toString().toRequestBody(MEDIA_TYPE_JSON.toMediaTypeOrNull())
     }
-
 }
 
 

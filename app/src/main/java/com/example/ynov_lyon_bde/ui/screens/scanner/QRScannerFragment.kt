@@ -14,6 +14,9 @@ import com.example.ynov_lyon_bde.domain.viewmodel.scanner.QRScannerViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_qr_scanner.*
 import kotlinx.android.synthetic.main.fragment_qr_scanner.view.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+
 
 class QRScannerFragment : Fragment() {
 
@@ -27,21 +30,23 @@ class QRScannerFragment : Fragment() {
         val event = args.Event
         val bottomNavigationBar = activity?.findViewById<BottomNavigationView>(R.id.bottomNavigation)
 
-        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100) }
+        activity?.let { ActivityCompat.requestPermissions(it, arrayOf(Manifest.permission.CAMERA), 100)}
 
         val viewModel = QRScannerViewModel()
-        viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
+        bottomNavigationBar?.visibility = View.GONE
+        view.back_button_carddescription.setOnClickListener{findNavController().popBackStack()}
 
-        view.back_button_carddescription.setOnClickListener{
-            findNavController().popBackStack()
-            viewModel.changeVisibilityBottomNavigationBar(bottomNavigationBar)
+        view.scanner.decodeContinuous {
+            GlobalScope.launch {
+                if (it.result.text.isNotEmpty()) {
+                    val userId = context?.let { context -> viewModel.validationTicket(it.result.text, context)}
+                    activity?.runOnUiThread {
+                        viewModel.printNameOfClient(view, userId)
+                        viewModel.changeColorBorderCard(userId, view, requireActivity(), context)
+                    }
+                }
+            }
         }
-
-        viewModel.printTitleEvent(event, view)
-        view.scanner.decodeSingle {
-            viewModel.printNameOfClient(view,it.result.text)
-        }
-
         return view
     }
 
