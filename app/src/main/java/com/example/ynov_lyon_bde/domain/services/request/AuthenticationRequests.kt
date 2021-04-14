@@ -88,6 +88,7 @@ class AuthenticationRequests() : KoinComponent {
                     "MY_APP",
                     Context.MODE_PRIVATE
                 )
+                // Clear SharedPreferences
                 preferences.edit().clear().commit();
                 true
             } else {

@@ -37,35 +37,43 @@ class SettingsUserProfileFragment : Fragment() {
         // Logout
         view.logoutButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
+                var message: Boolean? = null
                 val deferred = async(Dispatchers.IO) {
                     //call requests
-                    val message: Boolean?
                     message = context?.let { it1 -> authenticationRequests.callLogoutRequest(it1) }
-                    Log.d("MessageTest", message.toString())
                 }
-//                deferred.await()
-//                if (message.isNullOrEmpty()) {
-//                    activity?.finish()
-//                } else {
-//                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-//                }
+                deferred.await()
+                if (message.toString() === "true") {
+                    // Toast success message
+                    Toast.makeText(context, "Déconnexion", Toast.LENGTH_SHORT).show()
+                    // Redirection to event fragment
+                    Navigation.findNavController(view)
+                        .navigate(R.id.actionSettingsUserProfileToEventsFragment)
+                } else {
+                    // Toast error message
+                    Toast.makeText(context, "Un problème est survenu", Toast.LENGTH_SHORT).show()
+                }
             }
         }
         // Delete account
         view.deleteAccountButton.setOnClickListener {
             GlobalScope.launch(Dispatchers.Main) {
+                var message: Boolean? = null
                 val deferred = async(Dispatchers.IO) {
                     //call requests
-                    val message: Boolean?
                     message = context?.let { it1 -> authenticationRequests.callDeleteUserRequest(it1) }
-                    Log.d("MessageTest", message.toString())
                 }
-//                deferred.await()
-//                if (message.isNullOrEmpty()) {
-//                    activity?.finish()
-//                } else {
-//                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-//                }
+                deferred.await()
+                if (message.toString() === "true") {
+                    // Toast success message
+                    Toast.makeText(context, "Votre compte à été supprimé", Toast.LENGTH_SHORT).show()
+                    // Redirection to event fragment
+                    Navigation.findNavController(view)
+                        .navigate(R.id.actionSettingsUserProfileToEventsFragment)
+                } else {
+                    // Toast error message
+                    Toast.makeText(context, "Un problème est survenu", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 

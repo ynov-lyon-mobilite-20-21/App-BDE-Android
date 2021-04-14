@@ -56,6 +56,9 @@
         <action
             android:id="@+id/actionSettingsUserProfileToPersonalInformationsUser"
             app:destination="@id/personalInformationsUser" />
+        <action
+            android:id="@+id/actionSettingsUserProfileToEventsFragment"
+            app:destination="@id/eventsFragment" />
     </fragment>
     <fragment
         android:id="@+id/personalInformationsUser"
