@@ -73,5 +73,9 @@
         android:id="@+id/editInformationsProfileFragment"
         android:name="com.example.ynov_lyon_bde.ui.screens.profil.EditInformationsProfileFragment"
         android:label="fragment_edit_informations_profile"
-        tools:layout="@layout/fragment_edit_informations_profile" />
+        tools:layout="@layout/fragment_edit_informations_profile" >
+        <action
+            android:id="@+id/actionEditInformationsProfileFragmentToAccountFragment"
+            app:destination="@id/accountFragment" />
+    </fragment>
 </navigation>

@@ -46,30 +46,17 @@ class AuthenticationRequests() : KoinComponent {
         return success
     }
 
-//    // EDIT USER REQUEST
+    // EDIT USER REQUEST
     suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
         // Get token current user
         val sharedPreferencesService = SharedPreferencesService()
         val token = sharedPreferencesService.retrived("TOKEN", context)
         // Call API
         val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
-        Log.d("Response Call API", response)
-
-        val resultMe = response.split(";")[1]
-        val jsonResultRequest = JSONObject(resultMe)
-        val user = User(jsonResultRequest.getJSONObject("data").getString("_id"),
-        jsonResultRequest.getJSONObject("data").getBoolean("isActive"),
-        jsonResultRequest.getJSONObject("data").getBoolean("isAdmin"),
-        jsonResultRequest.getJSONObject("data").getBoolean("isAdherent"),
-        jsonResultRequest.getJSONObject("data").getString("firstName"),
-        jsonResultRequest.getJSONObject("data").getString("lastName"),
-        jsonResultRequest.getJSONObject("data").getString("mail"),
-        jsonResultRequest.getJSONObject("data").getString("promotion"),
-        jsonResultRequest.getJSONObject("data").getString("formation"))
-        sharedPreferencesService.saveInUser(user, context)
-
-        Log.d("Test", sharedPreferencesService.retrivedUser(context).toString())
-
+        Log.d("Response", response)
+        //Stock Informations user in Shared preferences
+        getUserInformations(response, context)
+        Log.d("New shared preferencies user", sharedPreferencesService.retrivedUser(context).toString())
         val success = errorManager.handleException(
             response,
             ErrorManager.ErrorType.ERROR
@@ -108,6 +95,7 @@ class AuthenticationRequests() : KoinComponent {
                     "MY_APP",
                     Context.MODE_PRIVATE
                 )
+                // Clear SharedPreferences
                 preferences.edit().clear().commit();
                 true
             } else {

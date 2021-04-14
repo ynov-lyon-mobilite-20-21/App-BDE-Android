@@ -22,7 +22,7 @@ class EditViewModel : ViewModel() {
         try {
             authenticationRequests.callEditUserRequest(editUserDto, context)
         }catch(err : Exception){
-            Log.e("message", err.message)
+            Log.e("Errormessage", err.message)
             message = gestionMessageErr(err.message)
         }
         return message
@@ -37,7 +37,21 @@ class EditViewModel : ViewModel() {
             "INVALID_TOKEN" -> messageForUser = "Compte non valide"
             "USER_DOESNT_EXIST" -> messageForUser = "Email ou mot de passe incorrect"
             "BAD_CREDENTIALS" -> messageForUser = "Formulaire mal renseigné"
+
+//            "" -> messageForUser = "Erreur"
+//            "MALFORMED_JSON" -> messageForUser = "Champs inattendus"
+//            "EMAIL_REQUIRED" -> messageForUser = "Email requis"
+//            "PASSWORD_REQUIRED" -> messageForUser = "Mot de passe requis"
+//            "FIRSTNAME_REQUIRED" -> messageForUser = "Prénom requis"
+//            "LASTNAME_REQUIRED" -> messageForUser = "Nom requis"
+//            "PROMOTION_REQUIRED" -> messageForUser = "Promotion requis"
+//            "FORMATION_REQUIRED" -> messageForUser = "Formation requis"
+//            "UNKNOWN_ERROR" -> messageForUser = "Une erreur est survenu"
+//            "USER_INACTIVE" -> messageForUser = "L'utilisateur existe déjà mais n'est pas actif"
+//            "USER_ALREADY_EXISTS" -> messageForUser = "Formulaire mal renseigné"
         }
         return messageForUser ?: message
     }
 }
+
+

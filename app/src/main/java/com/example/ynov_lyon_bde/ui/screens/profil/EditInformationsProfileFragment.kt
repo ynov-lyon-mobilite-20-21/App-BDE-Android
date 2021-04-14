@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
 import com.example.ynov_lyon_bde.domain.viewmodel.profile.EditViewModel
@@ -74,41 +75,51 @@ class EditInformationsProfileFragment : Fragment() {
             val newPassword = editTextNewPassword.text.toString()
             val confirmNewPassword = editTextConfirmNewPassword.text.toString()
 
-            // Check if all fields are not empty
-            if (firstname != null && lastname != null && level != null && promotion != null && lastPassword != "" && newPassword != "" && confirmNewPassword != "") {
-                // Check if new password and confirm password are equal
-                Log.d("MessageTest", "OK")
-//                if (confirmNewPassword == newPassword) {
-                    Log.d("MessageTest", "OK2")
-                    // Check if new password and confirm new passwor are different to last password
-                    if (lastPassword != newPassword || lastPassword != confirmNewPassword) {
-                        Log.d("MessageTest", "OK3")
-                        Toast.makeText(context, "Form OK", Toast.LENGTH_SHORT).show()
-                        var message: String? = null
 
+            Log.d("Valeur : ", lastPassword)
+            Log.d("Valeur : ", newPassword)
+            Log.d("Valeur : ", confirmNewPassword)
+
+            // Check if all fields are not empty
+            if (firstname.isNotEmpty() && lastname.isNotEmpty() && level.isNotEmpty() && promotion.isNotEmpty() && lastPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmNewPassword.isNotEmpty()) {
+                // Check if new password and confirm password are equal
+//                if (confirmNewPassword === newPassword) {
+//                    Log.d("MessageTest", "OK2")
+
+                    // Check if new password and confirm new passwor are different to last password
+//                    if ((lastPassword !== newPassword) || (lastPassword !== confirmNewPassword)) {
+                        Log.d("MessageTest", "OK3")
+
+                        var message: String? = null
                         GlobalScope.launch(Dispatchers.Main) {
                             val deferred = async(Dispatchers.IO) {
                                 //call requests
                                 message = context?.let { it1 -> editViewModel.edit(firstname, lastname, "luca.sardellitti@ynov.com", confirmNewPassword, promotion, level, it1) }
+                                Log.d("Redirection", message.toString())
+                                Toast.makeText(context, "Mise à jour du profile", Toast.LENGTH_SHORT).show()
                             }
                             deferred.await()
                             if (message.isNullOrEmpty()) {
-                                activity?.finish()
+                                Log.d("Redirection", "OK")
+                                Navigation.findNavController(view)
+                                    .navigate(R.id.actionEditInformationsProfileFragmentToAccountFragment)
                             } else {
+                                Log.d("Redirection", "KO")
                                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                             }
                         }
-                    } else {
-                        Log.d("MessageTest", "KO")
-                        Toast.makeText(context, "Le nouveau mot de passe ne peut pas être identique à l'ancien", Toast.LENGTH_SHORT).show()
-                    }
+//                    }
+//                    else {
+//                        Log.d("MessageTest", "KO")
+//                        Toast.makeText(context, "Le nouveau mot de passe ne peut pas être identique à l'ancien", Toast.LENGTH_SHORT).show()
+//                    }
 //                }
 //                else {
 //                    Log.d("MessageTest", "KO2")
 //                    Toast.makeText(context, "Le nouveau mot de passe et la confirmation ne sont pas identique", Toast.LENGTH_SHORT).show()
 //                }
             } else {
-                Log.d("MessageTest", "KO3")
+                Log.d("MessageTest", "Formulaire mal renseigné (champs vides)")
                 Toast.makeText(context, "Formulaire mal renseigné", Toast.LENGTH_SHORT).show()
             }
         }

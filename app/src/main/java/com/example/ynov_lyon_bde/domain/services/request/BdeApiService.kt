@@ -76,6 +76,7 @@ class BdeApiService {
         return jsonObject.toString().toRequestBody(MEDIA_TYPE_JSON.toMediaTypeOrNull())
     }
 
+    //Return boolean for call request who contain without response body
     suspend fun callRequestWithoutResponseBody(
         nameRequestNoJSON: NameRequestNoJSON,
         body: String,

@@ -1,6 +1,7 @@
 package com.example.ynov_lyon_bde.ui.screens.profil
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_personal_informations_user.*
 import kotlinx.android.synthetic.main.fragment_personal_informations_user.view.*
@@ -31,6 +33,11 @@ class PersonalInformationsUserFragment : Fragment() {
             Navigation.findNavController(view)
                 .navigate(R.id.actionPersonalInformationsUserToEditInformationsProfileFragment)
         }
+
+        // Test get infos current user
+        val sharedPreferencesService = SharedPreferencesService()
+        Log.d("Shared test data",
+            context?.let { sharedPreferencesService.retrivedUser(it).toString() })
         return view
     }
 
