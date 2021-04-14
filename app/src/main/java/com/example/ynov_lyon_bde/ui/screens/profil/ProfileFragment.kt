@@ -48,13 +48,9 @@ class ProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
         view.settings.setOnClickListener {
-                // Redirect to settings user profile fragment
-                Navigation.findNavController(view)
-                    .navigate(R.id.actionAccountFragmentToSettingsUserProfile);
-//            } else {
-//                val intent = Intent(activity, LoginActivity::class.java)
-//                startActivity(intent)
-//            }
+            // Redirect to settings user profile fragment
+            Navigation.findNavController(view)
+                .navigate(R.id.actionAccountFragmentToSettingsUserProfile);
         }
         return view
     }
