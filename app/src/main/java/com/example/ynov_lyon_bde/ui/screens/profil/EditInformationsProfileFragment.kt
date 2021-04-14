@@ -12,7 +12,9 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.ynov_lyon_bde.R
+import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import com.example.ynov_lyon_bde.domain.viewmodel.profile.EditViewModel
+import kotlinx.android.synthetic.main.fragment_account.*
 //import com.example.ynov_lyon_bde.domain.viewmodel.profile.EditViewModel
 import kotlinx.android.synthetic.main.fragment_edit_informations_profile.*
 import kotlinx.android.synthetic.main.fragment_edit_informations_profile.view.*
@@ -41,17 +43,24 @@ class EditInformationsProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val editViewModel = EditViewModel()
-
-        // Get current user value and assign his values
-        editTextLastName.setText("HAMEL-POIRAT")
-        editTextFirstName.setText("Maeva")
-        editLevel.setText("B2")
-        editFormation.setText("Création & Design")
+        // Get infos current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
+        val lastname = currentUser?.firstName.toString()
+        val firstname = currentUser?.lastName.toString()
+        val mail = currentUser?.mail.toString()
+        val promotion = currentUser?.promotion.toString()
+        val formation = currentUser?.formation.toString()
+        // Assign his values
+        editTextLastName.setText(lastname)
+        editTextFirstName.setText(firstname)
+        editLevel.setText(promotion)
+        editFormation.setText(formation)
 
         //Promotion values
-        val promotion = arrayOf("B1", "B2", "B3", "M1", "M2")
+        val promotions = arrayOf("B1", "B2", "B3", "M1", "M2")
         //Formation values
-        val formation = arrayOf(
+        val formations = arrayOf(
             "Animation 3D",
             "Audiovisuel",
             "Création & Design",
@@ -59,8 +68,8 @@ class EditInformationsProfileFragment : Fragment() {
             "Informatique"
         )
         //Create list
-        val adapterPromotion = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, promotion)
-        val adapterFormation = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formation)
+        val adapterPromotion = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, promotions)
+        val adapterFormation = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formations)
         //Add list to edit input
         view.editLevel.setAdapter(adapterPromotion)
         view.editFormation.setAdapter(adapterFormation)

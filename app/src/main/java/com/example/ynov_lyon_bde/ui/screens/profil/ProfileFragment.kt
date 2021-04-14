@@ -22,6 +22,7 @@ import com.example.ynov_lyon_bde.domain.services.SharedPreferencesService
 import com.example.ynov_lyon_bde.ui.screens.connection.LoginActivity
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
+import kotlinx.android.synthetic.main.fragment_personal_informations_user.*
 
 class ProfileFragment : Fragment() {
 
@@ -58,6 +59,20 @@ class ProfileFragment : Fragment() {
     //Populate the views now that the layout has been inflated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Get infos current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
+        val firstname = currentUser?.firstName.toString()
+        val lastname = currentUser?.lastName.toString()
+        val mail = currentUser?.mail.toString()
+        val promotion = currentUser?.promotion.toString()
+        val formation = currentUser?.formation.toString()
+        val completeName = "$firstname $lastname"
+        val completeFormation = "$promotion $formation"
+        // Assign his values
+        name.setText(completeName)
+        filiere.setText(completeFormation)
+        email.setText(mail)
 
         //RecyclerView initialized here
         recyclerView_tickets.apply {

@@ -34,18 +34,23 @@ class PersonalInformationsUserFragment : Fragment() {
                 .navigate(R.id.actionPersonalInformationsUserToEditInformationsProfileFragment)
         }
 
-        // Test get infos current user
-        val sharedPreferencesService = SharedPreferencesService()
-        Log.d("Shared test data",
-            context?.let { sharedPreferencesService.retrivedUser(it).toString() })
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Get current user value and assign his values
-        editTextLastNameFirstName.setText("HAMEL-POIRAT Maeva")
-        editTextPromotion.setText("B2 - Création & Design")
+        // Get infos current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
+        val firstname = currentUser?.firstName.toString()
+        val lastname = currentUser?.lastName.toString()
+        val promotion = currentUser?.promotion.toString()
+        val formation = currentUser?.formation.toString()
+        val completeName = "$firstname $lastname"
+        val completeFormation = "$promotion - $formation"
+        // Assign his values
+        editTextLastNameFirstName.setText(completeName)
+        editTextPromotion.setText(completeFormation)
     }
 
 }
