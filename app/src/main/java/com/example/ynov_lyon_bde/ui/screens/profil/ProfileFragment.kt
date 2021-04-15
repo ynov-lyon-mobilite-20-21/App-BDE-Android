@@ -49,6 +49,7 @@ class ProfileFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
 
+        // Get text, filiere and email value
         val name = view.findViewById<TextView>(R.id.name)
         val filiere = view.findViewById<TextView>(R.id.filiere)
         val email = view.findViewById<TextView>(R.id.email)
