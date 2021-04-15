@@ -46,7 +46,7 @@ class PersonalInformationsUserFragment : Fragment() {
         val lastname = currentUser?.lastName.toString()
         val promotion = currentUser?.promotion.toString()
         val formation = currentUser?.formation.toString()
-        val completeName = "$firstname $lastname"
+        val completeName = "$lastname $firstname"
         val completeFormation = "$promotion - $formation"
         // Assign his values
         editTextLastNameFirstName.setText(completeName)

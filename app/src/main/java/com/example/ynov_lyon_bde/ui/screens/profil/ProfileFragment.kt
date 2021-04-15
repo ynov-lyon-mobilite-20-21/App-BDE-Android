@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,13 +42,37 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         //REDIRECT CONNECT (if user current isn't connect)
         val redirectService = RedirectConnectService()
         context?.let { activity?.let { it1 -> redirectService.redirect(it, it1, RedirectConnectService.TypeAlertDialog.PROFIL) } }
 
 
         val view = inflater.inflate(R.layout.fragment_account, container, false)
+
+        val name = view.findViewById<TextView>(R.id.name)
+        val filiere = view.findViewById<TextView>(R.id.filiere)
+        val email = view.findViewById<TextView>(R.id.email)
+        // Get infos current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
+        // If user is no connected, name, filiere and email is empty
+        if (currentUser == null) {
+            name.setText("")
+            filiere.setText("")
+            email.setText("")
+        } else {
+            val firstname = currentUser?.firstName.toString()
+            val lastname = currentUser?.lastName.toString()
+            val mail = currentUser?.mail.toString()
+            val promotion = currentUser?.promotion.toString()
+            val formation = currentUser?.formation.toString()
+            val completeName = "$firstname $lastname"
+            val completeFormation = "$promotion $formation"
+            // Assign his values
+            name.setText(completeName)
+            filiere.setText(completeFormation)
+            email.setText(mail)
+        }
 
         view.settings.setOnClickListener {
             // Redirect to settings user profile fragment
@@ -59,21 +85,6 @@ class ProfileFragment : Fragment() {
     //Populate the views now that the layout has been inflated
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Get infos current user
-        val sharedPreferencesService = SharedPreferencesService()
-        val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
-        val firstname = currentUser?.firstName.toString()
-        val lastname = currentUser?.lastName.toString()
-        val mail = currentUser?.mail.toString()
-        val promotion = currentUser?.promotion.toString()
-        val formation = currentUser?.formation.toString()
-        val completeName = "$firstname $lastname"
-        val completeFormation = "$promotion $formation"
-        // Assign his values
-        name.setText(completeName)
-        filiere.setText(completeFormation)
-        email.setText(mail)
-
         //RecyclerView initialized here
         recyclerView_tickets.apply {
             //Set a LinearLayoutManager to handle Android; Correctly positions all the data in the list.

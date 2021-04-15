@@ -95,7 +95,6 @@ class EditInformationsProfileFragment : Fragment() {
                             val deferred = async(Dispatchers.IO) {
                                 //call requests
                                 message = context?.let { it1 -> editViewModel.edit(firstname, lastname, mail, confirmNewPassword, promotion, formation, it1) }
-                                Log.d("Redirection", message.toString())
                             }
                             deferred.await()
                             Toast.makeText(context, "Le profil a été mis à jour", Toast.LENGTH_SHORT).show()
