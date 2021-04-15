@@ -53,10 +53,8 @@ class AuthenticationRequests() : KoinComponent {
         val token = sharedPreferencesService.retrived("TOKEN", context)
         // Call API
         val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
-        Log.d("Response", response)
         //Stock Informations user in Shared preferences
         getUserInformations(response, context)
-        Log.d("New shared preferencies user", sharedPreferencesService.retrivedUser(context).toString())
         val success = errorManager.handleException(
             response,
             ErrorManager.ErrorType.ERROR

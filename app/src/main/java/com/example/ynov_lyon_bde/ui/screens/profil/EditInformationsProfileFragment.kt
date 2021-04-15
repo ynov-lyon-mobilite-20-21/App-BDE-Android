@@ -84,51 +84,35 @@ class EditInformationsProfileFragment : Fragment() {
             val newPassword = editTextNewPassword.text.toString()
             val confirmNewPassword = editTextConfirmNewPassword.text.toString()
 
-
-            Log.d("Valeur : ", lastPassword)
-            Log.d("Valeur : ", newPassword)
-            Log.d("Valeur : ", confirmNewPassword)
-
             // Check if all fields are not empty
             if (firstname.isNotEmpty() && lastname.isNotEmpty() && level.isNotEmpty() && promotion.isNotEmpty() && lastPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmNewPassword.isNotEmpty()) {
                 // Check if new password and confirm password are equal
-//                if (confirmNewPassword === newPassword) {
-//                    Log.d("MessageTest", "OK2")
-
+                if (confirmNewPassword == newPassword) {
                     // Check if new password and confirm new passwor are different to last password
-//                    if ((lastPassword !== newPassword) || (lastPassword !== confirmNewPassword)) {
-                        Log.d("MessageTest", "OK3")
-
+                    if ((lastPassword != newPassword) || (lastPassword != confirmNewPassword)) {
                         var message: String? = null
                         GlobalScope.launch(Dispatchers.Main) {
                             val deferred = async(Dispatchers.IO) {
                                 //call requests
                                 message = context?.let { it1 -> editViewModel.edit(firstname, lastname, "luca.sardellitti@ynov.com", confirmNewPassword, promotion, level, it1) }
                                 Log.d("Redirection", message.toString())
-                                Toast.makeText(context, "Mise à jour du profile", Toast.LENGTH_SHORT).show()
                             }
                             deferred.await()
+                            Toast.makeText(context, "Mise à jour du profile", Toast.LENGTH_SHORT).show()
                             if (message.isNullOrEmpty()) {
-                                Log.d("Redirection", "OK")
                                 Navigation.findNavController(view)
                                     .navigate(R.id.actionEditInformationsProfileFragmentToAccountFragment)
                             } else {
-                                Log.d("Redirection", "KO")
                                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
                             }
                         }
-//                    }
-//                    else {
-//                        Log.d("MessageTest", "KO")
-//                        Toast.makeText(context, "Le nouveau mot de passe ne peut pas être identique à l'ancien", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//                else {
-//                    Log.d("MessageTest", "KO2")
-//                    Toast.makeText(context, "Le nouveau mot de passe et la confirmation ne sont pas identique", Toast.LENGTH_SHORT).show()
-//                }
+                    } else {
+                        Toast.makeText(context, "Le nouveau mot de passe ne peut pas être identique à l'ancien", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    Toast.makeText(context, "Le nouveau mot de passe et la confirmation ne sont pas identique", Toast.LENGTH_SHORT).show()
+                }
             } else {
-                Log.d("MessageTest", "Formulaire mal renseigné (champs vides)")
                 Toast.makeText(context, "Formulaire mal renseigné", Toast.LENGTH_SHORT).show()
             }
         }
