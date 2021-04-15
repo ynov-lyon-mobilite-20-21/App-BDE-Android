@@ -46,16 +46,16 @@ class EditInformationsProfileFragment : Fragment() {
         // Get infos current user
         val sharedPreferencesService = SharedPreferencesService()
         val currentUser = context?.let { sharedPreferencesService.retrivedUser(it)}
-        val lastname = currentUser?.firstName.toString()
-        val firstname = currentUser?.lastName.toString()
+        val firstname = currentUser?.firstName.toString()
+        val lastname = currentUser?.lastName.toString()
         val mail = currentUser?.mail.toString()
         val promotion = currentUser?.promotion.toString()
         val formation = currentUser?.formation.toString()
         // Assign his values
         editTextLastName.setText(lastname)
         editTextFirstName.setText(firstname)
-        editLevel.setText(promotion)
         editFormation.setText(formation)
+        editPromotion.setText(promotion)
 
         //Promotion values
         val promotions = arrayOf("B1", "B2", "B3", "M1", "M2")
@@ -71,21 +71,21 @@ class EditInformationsProfileFragment : Fragment() {
         val adapterPromotion = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, promotions)
         val adapterFormation = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, formations)
         //Add list to edit input
-        view.editLevel.setAdapter(adapterPromotion)
+        view.editPromotion.setAdapter(adapterPromotion)
         view.editFormation.setAdapter(adapterFormation)
 
         // Get form values
         validateProfileButton.setOnClickListener {
             val firstname = editTextFirstName.text.toString()
             val lastname = editTextLastName.text.toString()
-            val level = editLevel.text.toString()
-            val promotion = editFormation.text.toString()
+            val promotion = editPromotion.text.toString()
+            val formation = editFormation.text.toString()
             val lastPassword = editTextLastPassword.text.toString()
             val newPassword = editTextNewPassword.text.toString()
             val confirmNewPassword = editTextConfirmNewPassword.text.toString()
 
             // Check if all fields are not empty
-            if (firstname.isNotEmpty() && lastname.isNotEmpty() && level.isNotEmpty() && promotion.isNotEmpty() && lastPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmNewPassword.isNotEmpty()) {
+            if (firstname.isNotEmpty() && lastname.isNotEmpty() && promotion.isNotEmpty() && formation.isNotEmpty() && lastPassword.isNotEmpty() && newPassword.isNotEmpty() && confirmNewPassword.isNotEmpty()) {
                 // Check if new password and confirm password are equal
                 if (confirmNewPassword == newPassword) {
                     // Check if new password and confirm new passwor are different to last password
@@ -94,11 +94,11 @@ class EditInformationsProfileFragment : Fragment() {
                         GlobalScope.launch(Dispatchers.Main) {
                             val deferred = async(Dispatchers.IO) {
                                 //call requests
-                                message = context?.let { it1 -> editViewModel.edit(firstname, lastname, "luca.sardellitti@ynov.com", confirmNewPassword, promotion, level, it1) }
+                                message = context?.let { it1 -> editViewModel.edit(firstname, lastname, mail, confirmNewPassword, promotion, formation, it1) }
                                 Log.d("Redirection", message.toString())
                             }
                             deferred.await()
-                            Toast.makeText(context, "Mise à jour du profile", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(context, "Le profil a été mis à jour", Toast.LENGTH_SHORT).show()
                             if (message.isNullOrEmpty()) {
                                 Navigation.findNavController(view)
                                     .navigate(R.id.actionEditInformationsProfileFragmentToAccountFragment)

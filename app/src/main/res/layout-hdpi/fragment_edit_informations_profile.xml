@@ -120,7 +120,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiLevel"
+                    app:layout_constraintBottom_toTopOf="@+id/tiPromotion"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiLastName">
@@ -133,9 +133,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:textColor="@color/black"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Level-->
+                <!-- Promotion-->
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/tiLevel"
+                    android:id="@+id/tiPromotion"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -153,14 +153,14 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiFirstName">
                     <AutoCompleteTextView
-                        android:id="@+id/editLevel"
+                        android:id="@+id/editPromotion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textSize="12dp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- Filière-->
+                <!-- Formation-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tiFormation"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -178,7 +178,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:layout_constraintBottom_toTopOf="@+id/tiLastPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tiLevel">
+                    app:layout_constraintTop_toBottomOf="@+id/tiPromotion">
                     <AutoCompleteTextView
                         android:id="@+id/editFormation"
                         android:layout_width="match_parent"
