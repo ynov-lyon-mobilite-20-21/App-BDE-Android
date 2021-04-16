@@ -40,7 +40,7 @@ class AuthenticationRequests() : KoinComponent {
 
         //Save token in shared preference
         sharedPreferencesService.saveIn("TOKEN", token!!, context)
-        sharedPreferencesService.saveIn("refreshToken", refreshToken!!, context)
+        sharedPreferencesService.saveIn(    "refreshToken", refreshToken!!, context)
         return success
     }
 
