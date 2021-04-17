@@ -25,4 +25,5 @@
     <color name="button_onboarding">#BB86FC</color>
     <color name="qrcode_border_blue">#20A99A</color>
     <color name="qrcode_border_red">#E64562</color>
+    <color name="settings_choice">#F4F4F4</color>
 </resources>

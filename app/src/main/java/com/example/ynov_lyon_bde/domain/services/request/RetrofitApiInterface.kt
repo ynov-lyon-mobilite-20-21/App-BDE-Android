@@ -5,7 +5,6 @@ import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
 
-
 interface RetrofitApiInterface {
 
     @POST("api/users")
@@ -22,4 +21,13 @@ interface RetrofitApiInterface {
 
     @GET("/api/ticket/{id}/check")
     suspend fun checkTicket(@Header("Authorization") token: String?, @Path("id") id: String?):Response<ResponseBody>
+
+    @PUT("/api/users")
+    suspend fun editUser(@Header("Authorization") token: String?, @Body requestBody: RequestBody): Response<ResponseBody>
+
+    @POST("api/auth/logout")
+    suspend fun logout(@Header("Authorization") token: String?, @Body requestBody: RequestBody): Response<ResponseBody>
+
+    @DELETE("api/users")
+    suspend fun deleteUser(@Header("Authorization") token: String?): Response<ResponseBody>
 }

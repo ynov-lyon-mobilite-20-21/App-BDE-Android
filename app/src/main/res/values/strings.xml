@@ -46,4 +46,57 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     //fragment_account
     <string name="my_informations">MES INFORMATIONS</string>
     <string name="my_tickets">MES BILLETS</string>
+    //fragment_settings_user_profil
+    <string name="fragment_settings_user_profil_title">Réglages</string>
+    <string name="personal_information">Informations personnelles</string>
+    <string name="how_use_app">Comment utiliser l\'application</string>
+    <string name="payment_information">Information de payement</string>
+    <string name="delete_account">Supprimer le compte</string>
+    <string name="logout">Déconnexion</string>
+    //fragment_personal_informations_user et fragment_edit_informations_profile
+    <string name="fragment_personal_informations_user_title">Informations Personnelles</string>
+    //fragment_personal_informations_user
+    <string name="labelName"><font size="35">Nom Prénom</font></string>
+    <string name="labelPromotion"><font size="35">Niveau/Filière</font></string>
+    //--- xhdpi ---
+    <string name="labelName_xhdpi"><font size="25">Nom Prénom</font></string>
+    <string name="labelPromotion_xhdpi"><font size="25">Niveau/Filière</font></string>
+    //--- xhdpi ---
+    //--- mdpi ---
+    <string name="labelName_mdpi"><font size="13">Nom Prénom</font></string>
+    <string name="labelPromotion_mdpi"><font size="13">Niveau/Filière</font></string>
+    //--- mdpi ---
+    //--- hdpi ---
+    <string name="labelName_hdpi"><font size="16">Nom Prénom</font></string>
+    <string name="labelPromotion_hdpi"><font size="16">Niveau/Filière</font></string>
+    //--- hdpi ---
+    <string name="edit_my_password">Modifier mon mot de passe</string>
+    <string name="edit">Modifier</string>
+    //fragment_edit_informations_profile
+    <string name="labelLastName"><font size="35">Nom</font></string>
+    <string name="labelFirstName"><font size="35">Prénom</font></string>
+    <string name="labelPromotionLevel"><font size="35">Niveau</font></string>
+    <string name="labelPromotionSchool"><font size="35">Filière</font></string>
+    //--- xhdpi ---
+    <string name="labelLastName_xhdpi"><font size="25">Nom</font></string>
+    <string name="labelFirstName_xhdpi"><font size="25">Prénom</font></string>
+    <string name="labelPromotionLevel_xhdpi"><font size="25">Niveau</font></string>
+    <string name="labelPromotionSchool_xhdpi"><font size="25">Filière</font></string>
+    //--- xhdpi ---
+    //--- mdpi ---
+    <string name="labelLastName_mdpi"><font size="13">Nom</font></string>
+    <string name="labelFirstName_mdpi"><font size="13">Prénom</font></string>
+    <string name="labelPromotionLevel_mdpi"><font size="13">Niveau</font></string>
+    <string name="labelPromotionSchool_mdpi"><font size="13">Filière</font></string>
+    //--- mdpi ---
+    //--- hdpi ---
+    <string name="labelLastName_hdpi"><font size="16">Nom</font></string>
+    <string name="labelFirstName_hdpi"><font size="16">Prénom</font></string>
+    <string name="labelPromotionLevel_hdpi"><font size="16">Niveau</font></string>
+    <string name="labelPromotionSchool_hdpi"><font size="16">Filière</font></string>
+    //--- hdpi ---
+    <string name="last_password">Ancien mot de passe</string>
+    <string name="new_password">Nouveau mot de passe</string>
+    <string name="confirm_new_password">Confirmation nouveau mot de passe</string>
+    <string name="validate">Valider</string>
 </resources>

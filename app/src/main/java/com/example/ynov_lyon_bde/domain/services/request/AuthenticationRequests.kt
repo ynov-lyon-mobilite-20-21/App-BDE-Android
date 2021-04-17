@@ -1,7 +1,9 @@
 package com.example.ynov_lyon_bde.domain.services.request
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
+import com.example.ynov_lyon_bde.data.model.DTO.EditUserDTO
 import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
 import com.example.ynov_lyon_bde.data.model.DTO.UserDTO
 import com.example.ynov_lyon_bde.data.model.User
@@ -42,6 +44,63 @@ class AuthenticationRequests() : KoinComponent {
         sharedPreferencesService.saveIn("TOKEN", token!!, context)
         sharedPreferencesService.saveIn(    "refreshToken", refreshToken!!, context)
         return success
+    }
+
+    // EDIT USER REQUEST
+    suspend fun callEditUserRequest(editUserDTO: EditUserDTO, context: Context): Boolean{
+        // Get token current user
+        val sharedPreferencesService = SharedPreferencesService()
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        // Call API
+        val response = bdeApiService.apiCaller(BdeApiService.NameRequest.EDIT_USER, editUserDTO, token)
+        //Stock Informations user in Shared preferences
+        getUserInformations(response, context)
+        val success = errorManager.handleException(
+            response,
+            ErrorManager.ErrorType.ERROR
+        )
+        return success
+    }
+
+    //LOGOUT REQUEST
+    suspend fun callLogoutRequest(context: Context): Boolean {
+        val refreshToken = sharedPreferencesService.retrived("refreshToken", context)
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        if (token != null && refreshToken != null){
+            val response = bdeApiService.callRequestWithoutResponseBody(BdeApiService.NameRequestNoJSON.LOGOUT,  refreshToken, token)
+            return if(response){
+                val preferences: SharedPreferences = context.getSharedPreferences(
+                    "MY_APP",
+                    Context.MODE_PRIVATE
+                )
+                // Clear SharedPreferences
+                preferences.edit().clear().commit();
+                true
+            } else {
+                false
+            }
+        }
+        return false
+    }
+
+    //DELETE USER REQUEST
+    suspend fun callDeleteUserRequest(context: Context): Boolean {
+        val token = sharedPreferencesService.retrived("TOKEN", context)
+        if (token != null){
+            val response = bdeApiService.callRequestWithoutResponseBody(BdeApiService.NameRequestNoJSON.DELETE_USER, "", token)
+            return if(response){
+                val preferences: SharedPreferences = context.getSharedPreferences(
+                    "MY_APP",
+                    Context.MODE_PRIVATE
+                )
+                // Clear SharedPreferences
+                preferences.edit().clear().commit();
+                true
+            } else {
+                false
+            }
+        }
+        return false
     }
 
     suspend fun meAndRefreshToken(context: Context){
@@ -118,7 +177,7 @@ class AuthenticationRequests() : KoinComponent {
             val code = response.split(";")[0].toInt()
             if (code !in 200..299) {
                 return false
-            }else{
+            } else {
                 val json = response.split(";")[1]
                 val token = JSONObject(json).getJSONObject("data").getString("token")
                 val refreshToken = JSONObject(json).getJSONObject("data").getString("refreshToken")
