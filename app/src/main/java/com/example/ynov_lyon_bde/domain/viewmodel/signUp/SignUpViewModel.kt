@@ -1,6 +1,7 @@
 package com.example.ynov_lyon_bde.domain.viewmodel.signUp
 
 import android.content.Context
+import android.graphics.Color
 import android.util.Log
 import android.widget.EditText
 import androidx.core.widget.doAfterTextChanged
@@ -9,6 +10,7 @@ import com.example.ynov_lyon_bde.data.model.DTO.LoginDTO
 import com.example.ynov_lyon_bde.data.model.DTO.UserDTO
 import com.example.ynov_lyon_bde.domain.services.request.AuthenticationRequests
 import com.google.android.material.textfield.TextInputLayout
+import kotlinx.android.synthetic.main.fragment_createuser.*
 import java.lang.Exception
 
 class SignUpViewModel : ViewModel() {
@@ -29,25 +31,28 @@ class SignUpViewModel : ViewModel() {
         )
         val authenticationRequests = AuthenticationRequests()
         try{
+            authenticationRequests.callRegisterRequest(userDto)
+            /*
             if (authenticationRequests.callRegisterRequest(userDto)) {
                 if (authenticationRequests.callLoginRequest(loginDto, context)) {
                     authenticationRequests.meAndRefreshToken(context)
                 }
             }
+
+             */
         }catch(err : Exception){
             Log.e("create request", err.toString())
-            message = gestionMessageErr(err.message)
+            message = messageErrorForUser(err.message)
         }
         return message
     }
 
-    private fun gestionMessageErr(message: String?): String? {
+    private fun messageErrorForUser(message: String?): String? {
         var messageForUser : String? = null
         when(message){
-            "UNKNOWN_ERROR" -> messageForUser = "Erreur"
-            "NO_USER" -> messageForUser = "Email ou mot de passe incorrect"
-            "USER_INACTIVE" -> messageForUser = "Veuillez valider votre adresse email"
-            "INVALID_TOKEN" -> messageForUser = "Compte non valide"
+            "UNKNOWN_ERROR" -> messageForUser = "Erreur inconnue"
+            "MALFORMED_JSON" -> messageForUser = "Champs inattendus pour la création de compte"
+            "USER_INACTIVE" -> messageForUser = "Ce compte existe déjà mais n'est pas actif"
             "USER_DOESNT_EXIST" -> messageForUser = "Email ou mot de passe incorrect"
             "BAD_CREDENTIALS" -> messageForUser = "Formulaire mal renseigné"
             "EMAIL_REQUIRED" -> messageForUser = "Email non renseigné"
@@ -61,8 +66,8 @@ class SignUpViewModel : ViewModel() {
         return messageForUser
     }
 
-    fun verifyErrorTextInputLayout(editTextContent: String?, til: TextInputLayout,
-                                   errMessage: String, focus: Boolean): Boolean
+    fun emptyErrorTextInputLayout(editTextContent: String?, til: TextInputLayout,
+                                  errMessage: String, focus: Boolean): Boolean
     {
         return if(editTextContent.isNullOrEmpty()){
             if(focus){
@@ -76,9 +81,19 @@ class SignUpViewModel : ViewModel() {
         }
     }
 
-    fun removeErrAfterTextChanged(editText: EditText, textInputLayout: TextInputLayout){
+    fun setErrorTextInputLayout(til: TextInputLayout,
+                                errMessage: String, focus: Boolean){
+        if(focus){
+            til.requestFocus()
+        }
+        til.boxStrokeColor = Color.parseColor("#b00020")
+        til.error = errMessage
+    }
+
+    fun removeErrAfterTextChanged(editText: EditText, til: TextInputLayout){
         editText.doAfterTextChanged {
-            textInputLayout.error = null
+            til.error = null
+            til.boxStrokeColor = Color.parseColor("#23B2A4")
         }
     }
 

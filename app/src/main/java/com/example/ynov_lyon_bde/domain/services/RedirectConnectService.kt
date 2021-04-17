@@ -24,26 +24,27 @@ class RedirectConnectService {
         var needConnect = false
         val sharedPreferencesService = SharedPreferencesService()
 
-        if (verifyStorageUser(context)) {
-            needConnect = false
+        if (!verifyStorageUser(context) || sharedPreferencesService.retrived("TOKEN", context).isNullOrEmpty()) {
+            needConnect = true
         } else {
-            if (sharedPreferencesService.retrived("TOKEN", context).isNullOrEmpty()) {
-                needConnect = true
-            } else {
-                GlobalScope.launch(Dispatchers.Main) {
-                    val deferred = async(Dispatchers.IO) {
-                        //call requests
-                        try {
-                            authenticationRequests.meAndRefreshToken(context)
-                        } catch (err: Exception) {
-                            needConnect = true
-                            Log.e("redirectConnect", err.toString())
-                        }
+            GlobalScope.launch(Dispatchers.Main) {
+                val deferred = async(Dispatchers.IO) {
+                    //call requests
+                    try {
+                        authenticationRequests.meAndRefreshToken(context)
+                        Log.e("PASSE DANS LE REDIRECT CONNECT", context.toString())
+                    } catch (err: Exception) {
+                        needConnect = true
+                        Log.e("redirectConnect", err.toString())
                     }
-                    deferred.await()
+                }
+                deferred.await()
+                if(needConnect){
+                    onAlertDialog(context, activity, typeAlertDialog)
                 }
             }
         }
+        Log.e("NeedConnect", needConnect.toString())
         if(needConnect){
             onAlertDialog(context, activity, typeAlertDialog)
         }
