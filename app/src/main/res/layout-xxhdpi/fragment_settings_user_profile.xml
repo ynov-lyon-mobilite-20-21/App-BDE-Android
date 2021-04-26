@@ -8,97 +8,90 @@
     android:background="@drawable/ic_sign_in_background"
     tools:context=".ui.screens.profil.SettingsUserProfileFragment">
 
-    <!-- Title settings bloc -->
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/title_bloc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/settings_fields_bloc">
-
-        <!-- Back icon -->
-        <ImageView
-            android:id="@+id/back_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingStart="16dp"
-            android:scaleType="fitXY"
-            android:scaleX="1.3"
-            android:scaleY="1.3"
-            android:src="?attr/actionModeCloseDrawable"
-            app:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settings_fields_bloc_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!-- Title -->
-        <TextView
-            android:id="@+id/settings_fields_bloc_title"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="26dp"
-            android:fontFamily="@font/roboto_bold"
-            android:padding="16dp"
-            android:text="@string/fragment_settings_user_profil_title"
-            android:textColor="#000"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!-- Setting fields bloc -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/settings_fields_bloc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_bloc"
         app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/settings_fields_bloc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/back_icon"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                android:scaleType="fitXY"
+                android:scaleX="1.3"
+                android:scaleY="1.3"
+                android:src="?attr/actionModeCloseDrawable"
+                app:tint="#000000"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/settings_fields_bloc_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:padding="16dp"
+                android:text="@string/fragment_settings_user_profil_title"
+                android:textColor="#000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toEndOf="@id/back_icon"
+                app:layout_constraintTop_toTopOf="parent"/>
+        </LinearLayout>
+
+
 
         <!-- Personal informations field-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/personalInformationButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="40dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:paddingStart="20dp"
             android:background="@color/settings_choice"
             app:backgroundTint="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_left"
+            android:drawableEnd="@drawable/ic_arrow_right"
             android:hint="@string/personal_information"
+            android:textColorHint="@color/qrcode_border_blue"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toTopOf="@+id/howUseAppButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/settings_fields_bloc" />
 
         <!-- How use app field-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/howUseAppButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
             app:backgroundTint="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_left"
+            android:drawableEnd="@drawable/ic_arrow_right"
             android:hint="@string/how_use_app"
+            android:textColorHint="@color/qrcode_border_blue"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toTopOf="@+id/payementInformationButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -109,18 +102,19 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/payementInformationButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
             app:backgroundTint="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_left"
+            android:drawableEnd="@drawable/ic_arrow_right"
             android:hint="@string/payment_information"
+            android:textColorHint="@color/qrcode_border_blue"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -131,18 +125,19 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/deleteAccountButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
             app:backgroundTint="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_left"
+            android:drawableEnd="@drawable/ic_arrow_right"
             android:hint="@string/delete_account"
+            android:textColorHint="@color/qrcode_border_blue"
             android:drawableTint="#707070"
             android:textAlignment="textStart"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:fontFamily="@font/roboto_regular"
             app:layout_constraintBottom_toTopOf="@+id/logoutButton"
             app:layout_constraintEnd_toEndOf="parent"
@@ -153,17 +148,18 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/logoutButton"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="26dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
+            android:layout_marginBottom="30dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_left"
+            android:drawableEnd="@drawable/ic_arrow_right"
             android:fontFamily="@font/roboto_regular"
             android:hint="@string/logout"
-            android:drawableTint="#707070"
-            android:textSize="14sp"
+            android:textColorHint="@color/qrcode_border_red"
+            android:textSize="16sp"
             android:textAlignment="textStart"
             app:backgroundTint="@color/settings_choice"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -171,6 +167,5 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deleteAccountButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 
