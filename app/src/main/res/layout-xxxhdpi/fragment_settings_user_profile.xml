@@ -8,13 +8,6 @@
     android:background="@drawable/ic_sign_in_background"
     tools:context=".ui.screens.profil.SettingsUserProfileFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
         <LinearLayout
             android:id="@+id/settings_fields_bloc"
             android:layout_width="0dp"
@@ -80,7 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
@@ -103,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
@@ -126,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
@@ -149,7 +142,7 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="30dp"
             android:paddingStart="20dp"
@@ -165,6 +158,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deleteAccountButton" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

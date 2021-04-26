@@ -8,13 +8,6 @@
     android:background="@drawable/ic_sign_in_background"
     tools:context=".ui.screens.profil.SettingsUserProfileFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
         <LinearLayout
             android:id="@+id/settings_fields_bloc"
             android:layout_width="0dp"
@@ -76,27 +69,27 @@
             app:layout_constraintTop_toBottomOf="@id/settings_fields_bloc" />
 
         <!-- How use app field-->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/howUseAppButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="20dp"
-            android:paddingStart="20dp"
-            android:background="@color/settings_choice"
-            app:backgroundTint="@color/settings_choice"
-            android:drawableEnd="@drawable/ic_arrow_right"
-            android:hint="@string/how_use_app"
-            android:textColorHint="@color/qrcode_border_blue"
-            android:drawableTint="#707070"
-            android:textAlignment="textStart"
-            android:textSize="16sp"
-            android:fontFamily="@font/roboto_regular"
-            app:layout_constraintBottom_toTopOf="@+id/payementInformationButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personalInformationButton"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/howUseAppButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/settings_choice"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:drawableTint="#707070"
+        android:fontFamily="@font/roboto_regular"
+        android:hint="@string/how_use_app"
+        android:paddingStart="20dp"
+        android:textAlignment="textStart"
+        android:textColorHint="@color/qrcode_border_blue"
+        android:textSize="16sp"
+        app:backgroundTint="@color/settings_choice"
+        app:layout_constraintBottom_toTopOf="@+id/payementInformationButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/personalInformationButton" />
 
         <!-- Payement informations field-->
         <com.google.android.material.button.MaterialButton
@@ -104,7 +97,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
@@ -127,7 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="20dp"
             android:background="@color/settings_choice"
@@ -150,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="30dp"
             android:paddingStart="20dp"
@@ -166,6 +159,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/deleteAccountButton" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
