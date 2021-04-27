@@ -56,7 +56,7 @@ L\'entrée se fera uniquement sous prévente, les tarifs sont les suivants : 2�
     //fragment_personal_informations_user et fragment_edit_informations_profile
     <string name="fragment_personal_informations_user_title">Informations Personnelles</string>
     //fragment_personal_informations_user
-    <string name="labelName"><font size="35">Nom Prénom</font></string>
+    <string name="labelName"><font size="35">Prénom Nom</font></string>
     <string name="labelPromotion"><font size="35">Niveau/Filière</font></string>
     //--- xhdpi ---
     <string name="labelName_xhdpi"><font size="25">Nom Prénom</font></string>

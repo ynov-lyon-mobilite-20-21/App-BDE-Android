@@ -8,48 +8,40 @@ android:layout_height="match_parent"
 android:background="@drawable/ic_sign_in_background"
 tools:context=".ui.screens.profil.EditInformationsProfileFragment">
 
-    <!-- Title edit informations bloc -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/title_bloc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/scrollViewContent">
-
-        <!-- Back icon -->
+        app:layout_constraintEnd_toEndOf="parent">
         <ImageView
             android:id="@+id/back_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingStart="16dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="25dp"
             android:scaleType="fitXY"
             android:scaleX="1.3"
             android:scaleY="1.3"
             android:src="?attr/actionModeCloseDrawable"
             app:tint="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/settings_fields_bloc_title"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
         <!-- Title -->
         <TextView
             android:id="@+id/settings_fields_bloc_title"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
             android:padding="16dp"
             android:text="@string/fragment_personal_informations_user_title"
             android:textColor="#000"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back_icon"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/back_icon"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </LinearLayout>
 
     <!-- Scroll view content -->
     <ScrollView
@@ -63,27 +55,20 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
 
         <!-- Fields content -->
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/edit_fields_bloc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- Edit fields bloc -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/edit_fields_bloc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
                 <!-- Lastname -->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tiLastName"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="40dp"
                     android:layout_marginEnd="20dp"
                     android:background="@color/settings_choice"
                     android:hint="@string/labelLastName"
@@ -92,7 +77,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiFirstName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -102,7 +86,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Firstname -->
@@ -110,9 +94,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiFirstName"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:background="@color/settings_choice"
                     android:hint="@string/labelFirstName"
@@ -121,7 +105,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiPromotion"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiLastName">
@@ -131,7 +114,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_height="wrap_content"
                         android:text=""
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Promotion-->
@@ -139,9 +122,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiPromotion"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:hint="@string/labelPromotionLevel"
                     android:textColorHint="#23B2A4"
@@ -149,7 +132,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiFormation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiFirstName">
@@ -159,7 +141,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:text=""
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Formation-->
@@ -167,9 +149,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiFormation"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:hint="@string/labelPromotionSchool"
                     android:textColorHint="#23B2A4"
@@ -177,7 +159,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiLastPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiPromotion">
@@ -187,7 +168,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_height="wrap_content"
                         android:enabled="false"
                         android:text=""
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Last password -->
@@ -195,9 +176,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiLastPassword"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:background="@color/settings_choice"
                     android:hint="@string/last_password"
@@ -206,7 +187,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiFirstName"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiFormation">
@@ -215,7 +195,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- New password -->
@@ -223,9 +203,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiNewPassword"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:background="@color/settings_choice"
                     android:hint="@string/new_password"
@@ -234,7 +214,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toTopOf="@+id/tiConfirmNewPassword"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiLastPassword">
@@ -243,7 +222,7 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <!-- Confirm new password -->
@@ -251,9 +230,9 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     android:id="@+id/tiConfirmNewPassword"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="60dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_marginTop="30dp"
                     android:layout_marginEnd="20dp"
                     android:background="@color/settings_choice"
                     android:hint="@string/confirm_new_password"
@@ -262,7 +241,6 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                     app:boxBackgroundMode="filled"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tiNewPassword">
@@ -271,39 +249,27 @@ tools:context=".ui.screens.profil.EditInformationsProfileFragment">
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="14sp"/>
+                        android:textSize="16sp"/>
                 </com.google.android.material.textfield.TextInputLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Button validate bloc -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/validateButtonContent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edit_fields_bloc">
                 <Button
                     android:id="@+id/validateProfileButton"
-                    style="@style/Widget.AppCompat.Button"
                     android:layout_width="158dp"
-                    android:layout_height="36dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp"
                     android:background="@drawable/createuser_figure_button"
                     app:backgroundTint="#17182F"
                     android:text="@string/validate"
+                    android:textSize="14sp"
                     android:textAllCaps="false"
                     android:fontFamily="@font/roboto_regular"
                     android:textColor="@color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tiConfirmNewPassword"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
