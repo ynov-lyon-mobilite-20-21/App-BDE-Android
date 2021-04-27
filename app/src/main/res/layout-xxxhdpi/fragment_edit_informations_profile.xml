@@ -18,9 +18,9 @@
 
         <ImageView
             android:id="@+id/back_icon"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="21dp"
             android:layout_marginStart="25dp"
             android:scaleType="fitXY"
             android:scaleX="1.3"
@@ -39,11 +39,12 @@
             android:padding="16dp"
             android:text="@string/fragment_personal_informations_user_title"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="24sp"
             app:layout_constraintStart_toEndOf="@id/back_icon"
             app:layout_constraintTop_toTopOf="parent"/>
     </LinearLayout>
 
+    <!-- Scroll view content -->
     <ScrollView
         android:id="@+id/scrollViewContent"
         android:layout_width="0dp"
@@ -66,12 +67,12 @@
                 android:id="@+id/tiLastName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/settings_choice"
-                android:hint="@string/labelLastName_xhdpi"
+                android:hint="@string/labelLastName_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -87,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Firstname -->
@@ -95,12 +96,12 @@
                 android:id="@+id/tiFirstName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/settings_choice"
-                android:hint="@string/labelFirstName_xhdpi"
+                android:hint="@string/labelFirstName_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -116,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Promotion-->
@@ -124,11 +125,11 @@
                 android:id="@+id/tiPromotion"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                android:hint="@string/labelPromotionLevel_xhdpi"
+                android:hint="@string/labelPromotionLevel_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -144,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:enabled="false"
                     android:text=""
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Formation-->
@@ -152,11 +153,11 @@
                 android:id="@+id/tiFormation"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
-                android:hint="@string/labelPromotionSchool_xhdpi"
+                android:hint="@string/labelPromotionSchool_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -172,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:enabled="false"
                     android:text=""
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Last password -->
@@ -180,12 +181,12 @@
                 android:id="@+id/tiLastPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/settings_choice"
-                android:hint="@string/last_password_xhdpi"
+                android:hint="@string/last_password_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -200,7 +201,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- New password -->
@@ -208,12 +209,12 @@
                 android:id="@+id/tiNewPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/settings_choice"
-                android:hint="@string/new_password_xhdpi"
+                android:hint="@string/new_password_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -228,7 +229,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Confirm new password -->
@@ -236,12 +237,12 @@
                 android:id="@+id/tiConfirmNewPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/settings_choice"
-                android:hint="@string/confirm_new_password_xhdpi"
+                android:hint="@string/confirm_new_password_xxxhdpi"
                 android:textColorHint="#23B2A4"
                 app:hintTextColor="#23B2A4"
                 app:boxBackgroundColor="@color/settings_choice"
@@ -256,19 +257,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
-                    android:textSize="16sp"/>
+                    android:textSize="18sp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/validateProfileButton"
-                android:layout_width="158dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/createuser_figure_button"
                 app:backgroundTint="#17182F"
-                android:text="@string/validate_xhdpi"
-                android:textSize="14sp"
+                android:text="@string/validate"
+                android:textSize="16sp"
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/white"
